@@ -1,0 +1,151 @@
+html { 
+    background: url("https://lh3.googleusercontent.com/d/1YqkjSadW714piyVpkKu6IeG9uUNN1ZOa") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    margin: 0px;
+    min-width: 850px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    color: aliceblue;
+    margin: 50px;
+}
+
+.menu ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.menu a {
+    padding: 5px 20px 5px 20px;
+    text-decoration: none;
+    color: aliceblue;
+    font-size: x-large;
+    border-radius: 25px;
+}
+
+.menu a:hover {
+    background-color: dodgerblue;
+}
+
+.cart {
+    border-top: 1px solid black;
+    background-color: rgb(222,235,246);
+}
+
+.cart h2 {
+    border-bottom: 1px solid black;
+    margin: 0px;
+    padding: 10px;
+}
+
+.order {
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.order-infor {
+    display: flex;
+    border-right: 1px solid black;
+    max-width: 60%;
+    min-width: 60%;
+}
+
+.order-img {
+    max-width: 220px;
+    min-width: 220px;
+    max-height: 220px;
+    min-height: 220px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.order img {
+    max-width: 200px;
+    max-height: 200px;
+    padding: 10px;
+}
+
+.order .name {
+    font-size: x-large;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.order-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 50px;
+    max-width: 50px;
+    border-right: 1px solid black;
+}
+
+.total {
+    flex: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+}
+
+.total #pay, #remove {
+    background-color: chocolate;
+    border-radius: 30px;
+    border: 1px solid white;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.total #pay:hover,#remove:hover {
+    background-color: rgb(230, 136, 70);
+}
+
+.total #paid {
+    border-radius: 30px;
+    border: 1px solid white;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    background-color: gray;
+}
+
+@media only screen and (max-width: 1000px) {
+    .header {
+        display: block;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: center;
+    }
+
+    .intro {
+        display: block;
+    }
+
+    .intro-desc {
+        text-align: center;
+    }
+
+    .intro-image {
+        margin-top: 50px;
+    }
+
+    .intro-image img {
+        width: 50%;
+    }
+}

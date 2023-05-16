@@ -23,11 +23,12 @@ USE `coffeeshop`;
 CREATE TABLE IF NOT EXISTS `taikhoan` (
   `id_taikhoan` varchar(10) NOT NULL,
   `email` varchar(255) NOT NULL DEFAULT '',
-  `password` varchar(36) NOT NULL DEFAULT '',
+  `password` varchar(200) NOT NULL DEFAULT '',
   `ten` varchar(255) NOT NULL DEFAULT '',
   `diachi` varchar(255) NOT NULL DEFAULT '',
   `sdt` varchar(10) NOT NULL DEFAULT '',
-  `chucvu` varchar(50) DEFAULT NULL
+  `chucvu` varchar(50) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_taikhoan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping structure for table coffeeshop.size
@@ -45,10 +46,11 @@ CREATE TABLE IF NOT EXISTS `mon` (
   `Loai` varchar(50) DEFAULT NULL,
   `Hinhanh` varchar(1000) DEFAULT NULL,
   `Mota` text DEFAULT NULL,
+  `trangthai` int(1) NOT NULL,
   PRIMARY KEY (`id_mon`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table coffeeshop.size: ~4 rows (approximately)
+-- Dumping data for table coffeeshop.size: ~4 rows (approximately) 
 INSERT INTO `size` (`id_size`, `ten_size`) VALUES
 	('L', 'Lớn'),
 	('M', 'thường'),
@@ -57,48 +59,48 @@ INSERT INTO `size` (`id_size`, `ten_size`) VALUES
 
 -- Dumping data for table coffeeshop.taikhoan: ~2 rows (approximately)
 INSERT INTO `taikhoan` (`id_taikhoan`, `email`, `password`, `ten`, `diachi`, `sdt`, `chucvu`) VALUES
-	('AD1', 'admin@gmail.com', '$2y$10$kv0pHTL.s.F/NrugEWl1s.7QMNPnEwdzD.ERDpL36uoR6JK6aD.qq', 'Admin', 'địa chỉ admin', '0909090909', '1');
+	('AD1', 'admin@gmail.com', '$2y$10$ozI9H1NOr4ZvHI5Qwl6ZpuRQQkJh/e184Pk2paX48asBXsO.TmyKK', 'Admin', 'địa chỉ admin', '0909090909', '1');
 
 -- Dumping data for table coffeeshop.mon: ~37 rows (approximately)
-INSERT INTO `mon` (`id_mon`, `ten_mon`, `Soluong`, `Loai`, `Hinhanh`, `Mota`) VALUES
-	('01', 'Cà Phê Sữa', 100, 'Cà Phê', 'coffee1.png', '1 Cà phê Sữa <br><br> Sản phẩm đặc trưng thương hiệu với nguyên liệu số 1 từ Hạt Robusta thêm Arabica, hoà quyện cùng sữa và đá vừa phải.'),
-	('02', 'Cà Phê Đen', 100, 'Cà Phê', 'coffee2.png', '1 Cà phê Đen <br><br> Cà phê đen - Hương thơm tỉnh táo, đắm say vị đậm. Một ngụm đen đượm năng lượng, đem đến sự sảng khoái và thỏa mãn cho mọi ngày mới.'),
-	('03', 'Bạc Xỉu', 100, 'Cà Phê', 'milkshake.png', '1 Bạc Xỉu <br><br> Lựa chọn cho bạn "nhẹ đô" cà phê. Giảm nhẹ độ đắng cà phê, tăng thêm độ ngọt từ sữa đặc.'),
-	('04', 'Cappuchino', 100, 'Cà Phê', 'cappuchino.png', '1 Cappuchino <br><br> Cà phê sữa đậm đà, vị cà phê đậm hơn Latte. Thêm sưã tươi và bọt sữa trang trí tỉ mỉ.'),
-	('05', 'Americano', 100, 'Cà Phê', 'americano.png', '1 Americano <br><br> Ly cà phê với công thức rang xay và pha chế đẳng cấp chuyên gia, nguyên liệu Robusta và Arabica hảo hạng.'),
-	('06', 'Espresso', 100, 'Cà Phê', 'espresso.png', '1 Espresso <br><br> Cà phê espresso cùng tỉ lệ nước sôi thích hợp nhưng vẫn đậm đà vị cà phê.'),
-	('07', 'Mocha Macchiato', 100, 'Cà Phê', 'mochamacchiato.png', '1 Macchiato <br><br> Hương vị của cà phê espresso đăng đắng kết hợp sữa tươi ngọt dịu tạo nên Macchiato. Tạo hình trang trí tỉ mỉ bằng lớp bọt sữa.'),
-	('08', 'Latte', 100, 'Cà Phê', 'latte.png', '1 Latte <br><br> Lựa chọn cho bạn "nhẹ đô" cà phê. Ly cà phê sữa ngọt ngào, thêm sữa tươi và bọt sữa trang trí tỉ mỉ.'),
-	('09', 'Freeze Matcha', 100, 'Freeze', 'freezematcha.png', '1 Freeze Matcha <br><br> Món ngon mát lạnh từ vị trà xanh thêm thạch giòn thơm và kem béo ngậy. Phần trang trí có thể bị ảnh hưởng khi vận chuyển.'),
-	('10', 'Freeze Chocolate', 100, 'Freeze', 'freezechocolate.png', '1 Freeze Chocolate <br><br> Thêm lạ khẩu vị cùng vị đăng đắng của Sô-cô-la trong Freezee Sô-cô-la. Phần trang trí có thể bị ảnh hưởng khi vận chuyển.'),
-	('11', 'Freeze Caramel', 100, 'Freeze', 'freezecaramel.png', '1 Freeze Caramel <br><br> Sự cộng hưởng của hương cà phê đá xay và caramel, thêm kem sữa rưới sốt caramel bên trên. Phần kem có thể bị ảnh hưởng khi vận chuyển.'),
-	('12', 'Freeze Cookie', 100, 'Freeze', 'freezecookie.png', '1 Freeze Cookie <br><br> Mát lạnh và không có cà phê ư? Có ngay sự kết hợp giữa bánh Oreo, sữa tươi và whipping cream! Phần kem có thể bị ảnh hưởng khi vận chuyển.'),
-	('13', 'Freeze Classic', 100, 'Freeze', 'freezeclassic.png', '1 Freeze Classic <br><br> Sự kết hợp giữa cà phê đá xay và caramel nhưng nhấn mạnh vào vị cà phê đậm đà. Phần kem có thể bị ảnh hưởng khi vận chuyển.'),
-	('14', 'Caramel Macchiato', 100, 'Cà Phê', 'caramelmacchiato.png', '1 Caramel Macchiato <br><br> Hương vị của cà phê espresso đăng đắng kết hợp sữa tươi ngọt dịu tạo nên Macchiato. Tạo hình trang trí tỉ mỉ bằng lớp bọt sữa.'),
-	('15', 'Trà Sen Vàng (củ năng)', 100, 'Trà', 'trasenvang1.png', '1 Trà Sen Vàng (củ năng) <br><br> Từ Ô Long kết hợp với hương sen thanh mát, thêm nguyên liệu củ năng giòn ngọt và lớp kem mềm mại.'),
-	('16', 'Trà Sen Vàng (sen)', 100, 'Trà', 'trasenvang2.png', '1 Trà Sen Vàng (sen) <br><br> Trà Ô long kết hợp với hương sen thanh mát, thêm đậm vị sen bằng hạt sen dẻo thơm và lớp kem mềm mại.'),
-	('17', 'Trà Thạch Vải', 100, 'Trà', 'trathachvai.png', '1 Trà Thạch Vải <br><br> Sự kết hợp giữa quả vải mọng nước cùng trà đen và thạch vải giòn thơm hương vải.'),
-	('18', 'Trà Xanh Đậu Đỏ', 100, 'Trà', 'traxanhdaudo.png', '1 Trà Xanh Đậu Đỏ <br><br> Vị trà xanh đăng đắng thơm ngát, thêm độ ngọt vừa và mềm mại của đậu đỏ. Ngon ngọt nhưng không ngấy.'),
-	('19', 'Sữa Tươi Đá', 100, 'Khác', 'suatuoida.png', '1 Sữa Tươi Đá <br><br> Mát lạnh, thơm ngon, bổ dưỡng. <br> Sữa tươi đá là một thức uống tuyệt vời để làm dịu cơn khát và tăng cường sức sống. Với vị ngọt tự nhiên, hương thơm tinh tế và sự mát lạnh của đá, sữa tươi đá mang đến cảm giác sảng khoái và thỏa mãn cho cơ thể.'),
-	('20', 'Chanh Dây Đá Viên', 100, 'Khác', 'chanhdaydavien.png', '1 Chanh Dây Đá Viên <br><br> Hương chanh dây thơm mát, vị chua ngọt quen thuộc và sắc vàng bắt mắt.'),
-	('21', 'Chanh Đá Viên', 100, 'Khác', 'chanhdavien.png', '1 Chanh Đá Viên <br><br> Vị chanh thơm mát, chua nhẹ cùng lượng đá viên vừa phải, giải khát tức thì.'),
-	('22', 'Chanh Đá Xay', 100, 'Khác', 'chanhdaxay.png', '1 Chanh Đá Xay <br><br> Vẫn vị chanh thơm, vị chua sảng khoái nhưng gấp đôi mát lạnh với đá xay.'),
-	('23', 'Tắc Đá Viên', 100, 'Khác', 'tacdavien.png', '1 Tắc Đá Viên <br><br> Vị tắc thơm mát, chua nhẹ cùng lượng đường đá vừa phải, mát lạnh tức thì.'),
-	('24', 'Chocolate', 100, 'Khác', 'chocolate.png', '1 Chocolate <br><br> Socola nóng sự kết hợp giữa vị đắng đặc trưng của sô-cô-la, độ ấm nóng vừa phải. Socola đá đậm đà vị sô-cô-la, thêm đá trung hoà vị đăng đắng đặc trưng, thêm mát lạnh.'),
-	('25', 'Phindi Hạnh Nhân', 100, 'Phindi', 'phindihanhnhan.png', '1 Phindi Hạnh Nhân <br><br> Cà phê Phin với độ đậm cà phê vừa phải, đặc biệt thêm Hạnh nhân thơm bùi.'),
-	('26', 'Phindi Cacao', 100, 'Phindi', 'phindicacao.png', '1 Phindi Cacao <br><br> Cà phê Phin kết hợp cùng Choco ngọt tan mang đến hương vị đắng nhẹ mà ngọt dịu.'),
-	('27', 'Phindi Cream', 100, 'Phindi', 'phindicream.png', '1 Phindi Cream <br><br> Cà phê Phin với độ đậm cà phê vừa phải, đực biệt thêm Kem Sữa thơm béo.'),
-	('28', 'Cookie Trà Xanh', 100, 'Bánh', 'cookietraxanh.png', '1 Cookie Trà Xanh <br><br> Bánh Cookies trà xanh thanh mát Lighland Coffee 35g/túi 5 cái'),
-	('29', 'Bánh Chuối', 100, 'Bánh', 'banhchuoi.png', '1 Bánh Chuối <br><br> Món bánh truyền thống quen thuộc, với nguyên liệu 100% từ chuối tươi và nước cốt dừa nguyên chất.'),
-	('30', 'Bánh Phô Mai Caramel', 100, 'Bánh', 'banhphomaicaramel.png', '1 Bánh Phô Mai Caramel <br><br> Bánh mềm mịn, tan chảy với độ thơm béo của phô mai, thêm caramel bắt mắt và ngọt ngào.'),
-	('31', 'Bánh Phô Mai Trà xanh', 100, 'Bánh', 'banhphomaitraxanh.png', '1 Bánh Phô Mai Trà Xanh <br><br> Vị trà xanh đắng nhẹ thêm phô mai ít béo, giảm độ ngấy của bánh nhưng vẫn thơm hương trà và đủ độ ngọt.'),
-	('32', 'Bánh Tiramisu', 100, 'Bánh', 'banhtiramisu.png', '1 Bánh Tiramisu <br><br> Bánh lạnh thơm mát với nguyên liệu ca-cao Việt Nam, thêm phô mai ít béo và hương thơm nhẹ nhàng của Rhum'),
-	('33', 'Bánh Mousse Đào', 100, 'Bánh', 'banhmoussedao.png', '1 Bánh Mousse Đào <br><br> Món bánh thanh mát với trang trí bằng lát đào thật. Mềm xốp và thơm hương đào, tan ngay trong miệng!'),
-	('34', 'Cookie Vanila', 100, 'Bánh', 'cookievanila.png', '1 Bánh Cookie Vanila <br><br> Bánh Cookies Vanilla Lighland Coffee 35g/túi 5 cái'),
-	('35', 'Bánh Sữa Chua Phô Mai', 100, 'Bánh', 'banhsuachuaphomai.png', '1 Bánh Sữa Chua Phô Mai <br><br> Nghĩ đến màu đỏ, chúng ta sẽ nghĩ đến màu của Giáng Sinh, màu của Lễ Hội & tuyệt nhiên hương vị Bánh mới sẽ là sự bùng nổ về hương vị cho buổi đi chơi, buổi hẹn hò hay buổi hàn thuyên trở nên hết nấc'),
-	('36', 'Bánh Phô Mai Chanh Dây', 100, 'Bánh', 'banhphomaichanhday.png', '1 Bánh Phô Mai Chanh Dây <br><br> Vỏ bánh vàng sáng, hương vị kết hợp từ vị beo béo của phô mai cùng với vị chua nhẹ của chanh dây.'),
-	('37', 'Bánh LowLand', 100, 'Bánh', 'banhlowland.png', '1 Bánh Lowland <br><br> Tròn tròn núng nính! Chiếc bánh signature của Lowland đậm đà vị sô-cô-la và kem tươi, thêm lớp sô-cô-la phủ ngoài hấp dẫn.'),
-	('38', 'Trà Dưa Hấu Vải', 100, 'Trà', 'traduahauvai.png', '1 Trà Dưa Hấu Vải <br><br> Với vị trà mát lạnh, lớp vải tươi và thạch giòn đầy đặn, món trà mới này sẽ đem lại cho bạn cảm giác thanh mát, sảng khoái và tràn đầy năng lượng. <br> Với một hớp thôi là bạn sẽ cảm nhận được một thức uống thật COOL, tươi mới, làm mọi mệt mỏi trôi qua tức thì.');
+INSERT INTO `mon` (`id_mon`, `ten_mon`, `Soluong`, `Loai`, `Hinhanh`, `Mota`, `trangthai`) VALUES
+	('01', 'Cà Phê Sữa', 100, 'Cà Phê', 'coffee1.png', '1 Cà phê Sữa <br><br> Sản phẩm đặc trưng thương hiệu với nguyên liệu số 1 từ Hạt Robusta thêm Arabica, hoà quyện cùng sữa và đá vừa phải.',0),
+	('02', 'Cà Phê Đen', 100, 'Cà Phê', 'coffee2.png', '1 Cà phê Đen <br><br> Cà phê đen - Hương thơm tỉnh táo, đắm say vị đậm. Một ngụm đen đượm năng lượng, đem đến sự sảng khoái và thỏa mãn cho mọi ngày mới.',0),
+	('03', 'Bạc Xỉu', 100, 'Cà Phê', 'milkshake.png', '1 Bạc Xỉu <br><br> Lựa chọn cho bạn "nhẹ đô" cà phê. Giảm nhẹ độ đắng cà phê, tăng thêm độ ngọt từ sữa đặc.',0),
+	('04', 'Cappuchino', 100, 'Cà Phê', 'cappuchino.png', '1 Cappuchino <br><br> Cà phê sữa đậm đà, vị cà phê đậm hơn Latte. Thêm sưã tươi và bọt sữa trang trí tỉ mỉ.',0),
+	('05', 'Americano', 100, 'Cà Phê', 'americano.png', '1 Americano <br><br> Ly cà phê với công thức rang xay và pha chế đẳng cấp chuyên gia, nguyên liệu Robusta và Arabica hảo hạng.',0),
+	('06', 'Espresso', 100, 'Cà Phê', 'espresso.png', '1 Espresso <br><br> Cà phê espresso cùng tỉ lệ nước sôi thích hợp nhưng vẫn đậm đà vị cà phê.',0),
+	('07', 'Mocha Macchiato', 100, 'Cà Phê', 'mochamacchiato.png', '1 Macchiato <br><br> Hương vị của cà phê espresso đăng đắng kết hợp sữa tươi ngọt dịu tạo nên Macchiato. Tạo hình trang trí tỉ mỉ bằng lớp bọt sữa.',0),
+	('08', 'Latte', 100, 'Cà Phê', 'latte.png', '1 Latte <br><br> Lựa chọn cho bạn "nhẹ đô" cà phê. Ly cà phê sữa ngọt ngào, thêm sữa tươi và bọt sữa trang trí tỉ mỉ.',0),
+	('09', 'Freeze Matcha', 100, 'Freeze', 'freezematcha.png', '1 Freeze Matcha <br><br> Món ngon mát lạnh từ vị trà xanh thêm thạch giòn thơm và kem béo ngậy. Phần trang trí có thể bị ảnh hưởng khi vận chuyển.',0),
+	('10', 'Freeze Chocolate', 100, 'Freeze', 'freezechocolate.png', '1 Freeze Chocolate <br><br> Thêm lạ khẩu vị cùng vị đăng đắng của Sô-cô-la trong Freezee Sô-cô-la. Phần trang trí có thể bị ảnh hưởng khi vận chuyển.',0),
+	('11', 'Freeze Caramel', 100, 'Freeze', 'freezecaramel.png', '1 Freeze Caramel <br><br> Sự cộng hưởng của hương cà phê đá xay và caramel, thêm kem sữa rưới sốt caramel bên trên. Phần kem có thể bị ảnh hưởng khi vận chuyển.',0),
+	('12', 'Freeze Cookie', 100, 'Freeze', 'freezecookie.png', '1 Freeze Cookie <br><br> Mát lạnh và không có cà phê ư? Có ngay sự kết hợp giữa bánh Oreo, sữa tươi và whipping cream! Phần kem có thể bị ảnh hưởng khi vận chuyển.',0),
+	('13', 'Freeze Classic', 100, 'Freeze', 'freezeclassic.png', '1 Freeze Classic <br><br> Sự kết hợp giữa cà phê đá xay và caramel nhưng nhấn mạnh vào vị cà phê đậm đà. Phần kem có thể bị ảnh hưởng khi vận chuyển.',0),
+	('14', 'Caramel Macchiato', 100, 'Cà Phê', 'caramelmacchiato.png', '1 Caramel Macchiato <br><br> Hương vị của cà phê espresso đăng đắng kết hợp sữa tươi ngọt dịu tạo nên Macchiato. Tạo hình trang trí tỉ mỉ bằng lớp bọt sữa.',0),
+	('15', 'Trà Sen Vàng (củ năng)', 100, 'Trà', 'trasenvang1.png', '1 Trà Sen Vàng (củ năng) <br><br> Từ Ô Long kết hợp với hương sen thanh mát, thêm nguyên liệu củ năng giòn ngọt và lớp kem mềm mại.',0),
+	('16', 'Trà Sen Vàng (sen)', 100, 'Trà', 'trasenvang2.png', '1 Trà Sen Vàng (sen) <br><br> Trà Ô long kết hợp với hương sen thanh mát, thêm đậm vị sen bằng hạt sen dẻo thơm và lớp kem mềm mại.',0),
+	('17', 'Trà Thạch Vải', 100, 'Trà', 'trathachvai.png', '1 Trà Thạch Vải <br><br> Sự kết hợp giữa quả vải mọng nước cùng trà đen và thạch vải giòn thơm hương vải.',0),
+	('18', 'Trà Xanh Đậu Đỏ', 100, 'Trà', 'traxanhdaudo.png', '1 Trà Xanh Đậu Đỏ <br><br> Vị trà xanh đăng đắng thơm ngát, thêm độ ngọt vừa và mềm mại của đậu đỏ. Ngon ngọt nhưng không ngấy.',0),
+	('19', 'Sữa Tươi Đá', 100, 'Khác', 'suatuoida.png', '1 Sữa Tươi Đá <br><br> Mát lạnh, thơm ngon, bổ dưỡng. <br> Sữa tươi đá là một thức uống tuyệt vời để làm dịu cơn khát và tăng cường sức sống. Với vị ngọt tự nhiên, hương thơm tinh tế và sự mát lạnh của đá, sữa tươi đá mang đến cảm giác sảng khoái và thỏa mãn cho cơ thể.',0),
+	('20', 'Chanh Dây Đá Viên', 100, 'Khác', 'chanhdaydavien.png', '1 Chanh Dây Đá Viên <br><br> Hương chanh dây thơm mát, vị chua ngọt quen thuộc và sắc vàng bắt mắt.',0),
+	('21', 'Chanh Đá Viên', 100, 'Khác', 'chanhdavien.png', '1 Chanh Đá Viên <br><br> Vị chanh thơm mát, chua nhẹ cùng lượng đá viên vừa phải, giải khát tức thì.',0),
+	('22', 'Chanh Đá Xay', 100, 'Khác', 'chanhdaxay.png', '1 Chanh Đá Xay <br><br> Vẫn vị chanh thơm, vị chua sảng khoái nhưng gấp đôi mát lạnh với đá xay.',0),
+	('23', 'Tắc Đá Viên', 100, 'Khác', 'tacdavien.png', '1 Tắc Đá Viên <br><br> Vị tắc thơm mát, chua nhẹ cùng lượng đường đá vừa phải, mát lạnh tức thì.',0),
+	('24', 'Chocolate', 100, 'Khác', 'chocolate.png', '1 Chocolate <br><br> Socola nóng sự kết hợp giữa vị đắng đặc trưng của sô-cô-la, độ ấm nóng vừa phải. Socola đá đậm đà vị sô-cô-la, thêm đá trung hoà vị đăng đắng đặc trưng, thêm mát lạnh.',0),
+	('25', 'Phindi Hạnh Nhân', 100, 'Phindi', 'phindihanhnhan.png', '1 Phindi Hạnh Nhân <br><br> Cà phê Phin với độ đậm cà phê vừa phải, đặc biệt thêm Hạnh nhân thơm bùi.',0),
+	('26', 'Phindi Cacao', 100, 'Phindi', 'phindicacao.png', '1 Phindi Cacao <br><br> Cà phê Phin kết hợp cùng Choco ngọt tan mang đến hương vị đắng nhẹ mà ngọt dịu.',0),
+	('27', 'Phindi Cream', 100, 'Phindi', 'phindicream.png', '1 Phindi Cream <br><br> Cà phê Phin với độ đậm cà phê vừa phải, đực biệt thêm Kem Sữa thơm béo.',0),
+	('28', 'Cookie Trà Xanh', 100, 'Bánh', 'cookietraxanh.png', '1 Cookie Trà Xanh <br><br> Bánh Cookies trà xanh thanh mát Lighland Coffee 35g/túi 5 cái',0),
+	('29', 'Bánh Chuối', 100, 'Bánh', 'banhchuoi.png', '1 Bánh Chuối <br><br> Món bánh truyền thống quen thuộc, với nguyên liệu 100% từ chuối tươi và nước cốt dừa nguyên chất.',0),
+	('30', 'Bánh Phô Mai Caramel', 100, 'Bánh', 'banhphomaicaramel.png', '1 Bánh Phô Mai Caramel <br><br> Bánh mềm mịn, tan chảy với độ thơm béo của phô mai, thêm caramel bắt mắt và ngọt ngào.',0),
+	('31', 'Bánh Phô Mai Trà xanh', 100, 'Bánh', 'banhphomaitraxanh.png', '1 Bánh Phô Mai Trà Xanh <br><br> Vị trà xanh đắng nhẹ thêm phô mai ít béo, giảm độ ngấy của bánh nhưng vẫn thơm hương trà và đủ độ ngọt.',0),
+	('32', 'Bánh Tiramisu', 100, 'Bánh', 'banhtiramisu.png', '1 Bánh Tiramisu <br><br> Bánh lạnh thơm mát với nguyên liệu ca-cao Việt Nam, thêm phô mai ít béo và hương thơm nhẹ nhàng của Rhum',0),
+	('33', 'Bánh Mousse Đào', 100, 'Bánh', 'banhmoussedao.png', '1 Bánh Mousse Đào <br><br> Món bánh thanh mát với trang trí bằng lát đào thật. Mềm xốp và thơm hương đào, tan ngay trong miệng!',0),
+	('34', 'Cookie Vanila', 100, 'Bánh', 'cookievanila.png', '1 Bánh Cookie Vanila <br><br> Bánh Cookies Vanilla Lighland Coffee 35g/túi 5 cái',0),
+	('35', 'Bánh Sữa Chua Phô Mai', 100, 'Bánh', 'banhsuachuaphomai.png', '1 Bánh Sữa Chua Phô Mai <br><br> Nghĩ đến màu đỏ, chúng ta sẽ nghĩ đến màu của Giáng Sinh, màu của Lễ Hội & tuyệt nhiên hương vị Bánh mới sẽ là sự bùng nổ về hương vị cho buổi đi chơi, buổi hẹn hò hay buổi hàn thuyên trở nên hết nấc',0),
+	('36', 'Bánh Phô Mai Chanh Dây', 100, 'Bánh', 'banhphomaichanhday.png', '1 Bánh Phô Mai Chanh Dây <br><br> Vỏ bánh vàng sáng, hương vị kết hợp từ vị beo béo của phô mai cùng với vị chua nhẹ của chanh dây.',0),
+	('37', 'Bánh LowLand', 100, 'Bánh', 'banhlowland.png', '1 Bánh Lowland <br><br> Tròn tròn núng nính! Chiếc bánh signature của Lowland đậm đà vị sô-cô-la và kem tươi, thêm lớp sô-cô-la phủ ngoài hấp dẫn.',0),
+	('38', 'Trà Dưa Hấu Vải', 100, 'Trà', 'traduahauvai.png', '1 Trà Dưa Hấu Vải <br><br> Với vị trà mát lạnh, lớp vải tươi và thạch giòn đầy đặn, món trà mới này sẽ đem lại cho bạn cảm giác thanh mát, sảng khoái và tràn đầy năng lượng. <br> Với một hớp thôi là bạn sẽ cảm nhận được một thức uống thật COOL, tươi mới, làm mọi mệt mỏi trôi qua tức thì.',0);
 
 -- Dumping structure for table coffeeshop.ct_mon_size
 CREATE TABLE IF NOT EXISTS `ct_mon_size` (

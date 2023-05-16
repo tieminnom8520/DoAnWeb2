@@ -25,18 +25,18 @@
 <div class="main">
     <form method="POST" class="form" id="form-1" action="login/register">
 
-      <h3 class="heading">Sign up new account</h3>
+      <h3 class="heading">Đăng Ký Tài Khoản Mới</h3>
       <p class="desc">Connect to our shop</p>
       <div class="spacer"></div>
 
       <div class="form-group">
-        <label for="fullname" class="form-label">Full Name</label>
+        <label for="fullname" class="form-label">Tên Đầy Đủ</label>
         <input id="fullname" name="ten" type="text" placeholder="Ex: Nguyen Van A" class="form-control">
         <span class="form-message"></span>
       </div>
 
       <div class="form-group">
-        <label for="phonenumber" class="form-label">Phone number</label>
+        <label for="phonenumber" class="form-label">Số Điện Thoại</label>
         <input id="phonenumber" name="sdt" type="number" placeholder="Ex: 0969696969" class="form-control">
         <span class="form-message"></span>
       </div>
@@ -48,11 +48,11 @@
       </div>
 
       <div class="form-group">
-        <label for="password" class="form-label">Password</label>
+        <label for="password" class="form-label">Mật Khẩu</label>
         <input id="password" name="password" type="password" placeholder="Enter password" class="form-control">
         <span class="form-message"></span>
       </div>
-      <button class="form-submit" type="submit">Submit</button>
+      <button class="form-submit" type="submit">Đăng Ký</button>
     </form>
 </div>
 

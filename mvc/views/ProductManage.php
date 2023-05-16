@@ -36,7 +36,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto fontSize">
                 <li class="nav-item active mr-4 selectedMenu">
-                        <a class="nav-link" href="./home">Back To Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="./home">Quay Về Trang Chủ<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
@@ -95,7 +95,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                                 <?php foreach($data as $value): ?>
                                     <tr data-id="<?=$value['id_mon']?>">
                                         <th scope="row"><?=$value['id_mon']?></th> 
-                                        <td class="Name_Product_value"><?php echo substr($value['ten_mon'],0,50)?>...</td>
+                                        <td class="Name_Product_value"><?php echo substr($value['ten_mon'],0,50)?></td>
                                         <td class="Type_Product_value"><?=$value['Loai']?></td>
                                         <td class="Price_Product_value"><?=$value['trangthai']?></td>
                                         <td class="Quantity_Product_value"><?=$value['Soluong']?></td>
@@ -110,13 +110,13 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                                     <tr class="hidden_modal" id="<?=$value['id_mon']?>">
                                         <td colspan="8">
                                             <div class="table_payment">
-                                                <div class="table_payment_title">Name</div>
+                                                <div class="table_payment_title">Tên</div>
                                             </div>
                                             <div class="table_payment_detail">
                                                 <p><?=$value['ten_mon']?></p>
                                             </div>
                                             <div class="table_payment">
-                                                <div class="table_payment_title">Description</div>
+                                                <div class="table_payment_title">Mô Tả Chi Tiết</div>
                                             </div>
                                             <div class="table_payment_detail">
                                                 <p><?=$value['Mota']?></p>
@@ -129,19 +129,19 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                         </table>
                         <div class="show_quantity">
                             <div class="show_quantity_item">
-                                <button type="button" id="button_add" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">ADD PRODUCT</button>
+                                <button type="button" id="button_add" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Thêm Sản Phẩm</button>
                             </div>
                             <div class="show_quantity_page">
                                 <nav aria-label="...">
                                     <ul class="pagination">
                                       <li class="page-item ">
-                                        <a class="page-link" href="manage/viewProductPage/<?=$page - 1?>" tabindex="-1">Prev</a>
+                                        <a class="page-link" href="manage/viewProductPage/<?=$page - 1?>" tabindex="-1">Trước</a>
                                       </li>
                                       <li class="page-item active">
                                         <a class="page-link" href="manage/viewProductPage/<?=$page?>"><?=$page?></a>
                                       </li>
                                       <li class="page-item">
-                                        <a class="page-link" href="manage/viewProductPage/<?=$page + 1?>">Next</a>
+                                        <a class="page-link" href="manage/viewProductPage/<?=$page + 1?>">Sau</a>
                                       </li>
                                     </ul>
                                   </nav>

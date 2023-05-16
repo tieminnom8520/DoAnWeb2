@@ -11,7 +11,7 @@
     <?php
             echo "<base href='${home_url}'>";
     ?>
-    <title>Home Page</title>
+    <title>Trang Chủ</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -31,11 +31,11 @@
         <div>
             <nav class="menu">
                 <ul>
-                    <li><a style="background-color: dodgerblue;" href="#">Home</a></li>
-                    <li><a href="products">Products</a></li>
+                    <li><a style="background-color: dodgerblue;" href="#">Trang Chủ</a></li>
+                    <li><a href="products">Sản Phẩm</a></li>
                     <li><a href="cart"><img style="width:20px;padding:0px;" src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png"></a></li>
                     
-                    <?php if($_SESSION['username'] == 1) echo "<li><a href=\"manage/viewProductPage/1\">Admin</a></li><li><a href=\"login/logout\">Logout</a></li>";
+                    <?php if($_SESSION['username'] == 1) echo "<li><a href=\"manage/viewProductPage/1\">Admin</a></li><li><a href=\"login/logout\">Đăng Xuất</a></li>";
                     else echo "<li><a href=\"login/logout\">Logout</a></li>";?>
                 </ul>
             </nav>
@@ -75,12 +75,12 @@
                         if ($i > 3) break;
                         endforeach; ?>
                 </div>
-                <div class="seemore-btn"><a href="products/category/<?=$value["Loai"]?>">See more</a></div>
+                <div class="seemore-btn"><a href="products/category/<?=$value["Loai"]?>">Xem Thêm</a></div>
             </div>
         <?php endforeach; ?>
 
         <div class="category-scroll">
-            <h2>May be you need</h2>
+            <h2>Có Thể Bạn Sẽ Thích</h2>
             <div class="product-list">
                 <?php 
                     while ($row = mysqli_fetch_array($data["all-pro"])){
@@ -95,7 +95,7 @@
 
     <div class="footer">
         <div class="useful-link">
-            <h3>Get To Know Us</h3>
+            <h3>Tìm Hiểu Thêm Về Chúng Tôi</h3>
             <div><a href="#">Facebook</a></div>
             <div><a href="#">Instagram</a></div>
             <div><a href="#">Twitter</a></div>

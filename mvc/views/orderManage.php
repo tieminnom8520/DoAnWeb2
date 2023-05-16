@@ -36,7 +36,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto fontSize">
                 <li class="nav-item active mr-4 selectedMenu">
-                        <a class="nav-link" href="./home">Back To Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="./home">Quay Về Trang Chủ<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>

@@ -11,7 +11,7 @@
     <?php
             echo "<base href='${home_url}'>";
     ?>
-    <title>Products Page</title>
+    <title>Trang Sản Phẩm</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -37,8 +37,8 @@
         <div>
             <nav class="menu">
                 <ul>
-                    <li><a href="home">Home</a></li>
-                    <li><a style="background-color: dodgerblue;" href="products">Products</a></li>
+                    <li><a href="home">Trang Chủ</a></li>
+                    <li><a style="background-color: dodgerblue;" href="products">Sản Phẩm</a></li>
                     <li><a href="cart"><img style="width:20px;padding:0px;" src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png"></a></li>
                     <?php if($_SESSION['username'] = "1") echo "<li><a href=\"manage/viewProductPage/1\">Admin</a></li><li><a href=\"login/logout\">Logout</a></li>";
                     else echo "<li><a href=\"login/logout\">Logout</a></li>";?>
@@ -58,27 +58,27 @@
                 </div>
                 <div class="detail">
                     <div class="attribute"> 
-                        Price: 
+                        Giá : 
                         <div class="value" id="cost"><?php echo $data["pro"]["gia"] ?>$</div>
                     </div>
                     <div class="attribute"> 
-                        Category: 
+                        Loại : 
                         <div class="value"><?php echo $data["pro"]["Loai"] ?></div>
                     </div>
                     <div class="attribute"> 
-                        Quantity: 
+                        Số Lượng Còn Lại : 
                         <div class="value" id="quantity"><?php echo $data["pro"]["Soluong"] ?></div>
                     </div>
                 </div>
                 
                 <div class="desc">
-                    <h4>About this item</h4>
+                    <h4>Thông Tin Thêm</h4>
                     <?php echo $data["pro"]["Mota"] ?>
                 </div>
             </div>
 
             <div class="order-form">
-                <div class="name">Order</div>
+                <div class="name">Đặt Hàng</div>
                 <div>
                     <form id="order-form" method="POST" action="payment/addToCart">
                         <div class="order-infor" style="display: none;">
@@ -88,11 +88,11 @@
                             <input type="text" name="id_mon" value="<?php echo $data["pro"]["id_mon"]?>">
                         </div>
                         <div class="order-infor">
-                            <label>Quantity:</label><input name="quantity" type="number" id="buy-quantity" min="1" max="<?php echo $data["pro"]["Soluong"] ?>" value="1" onchange="getTotalCost()">
+                            <label>Số Lượng:</label><input name="quantity" type="number" id="buy-quantity" min="1" max="<?php echo $data["pro"]["Soluong"] ?>" value="1" onchange="getTotalCost()">
                         </div>
                             
                         <div class="order-infor">
-                            <label>Deliver to:</label>
+                            <label>Địa Chỉ Giao Hàng:</label>
                             <select id="country" name="country">
                                 <option value="Afganistan">Afghanistan</option>
                                 <option value="Argentina">Argentina</option>
@@ -101,11 +101,11 @@
                         </div>
 
                         <div class="order-infor">
-                            <label>Total:</label><label id="total-cost"><?php echo $data["pro"]["gia"] ?>$</label>
+                            <label>Tổng Cộng :</label><label id="total-cost"><?php echo $data["pro"]["gia"] ?>$</label>
                         </div>
 
                         <div id="add-to-cart-btn">
-                            <button type="submit">Add to Cart</button>
+                            <button type="submit">Thêm Vào Giỏ Hàng</button>
                         </div>
                     </form>
                 </div>
@@ -114,7 +114,7 @@
         </div>
 
         <div class="related-product">
-            <h2>Products related to this item</h2>
+            <h2>Các Sản Phẩm Liên Quan</h2>
             <div class="product-list">
                 <?php 
                     while ($row = mysqli_fetch_assoc($data["related-pro"])){

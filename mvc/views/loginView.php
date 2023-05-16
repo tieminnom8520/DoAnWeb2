@@ -50,7 +50,7 @@
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div> -->
         <a href="login/registerView" class='desc'>Bạn chưa có tài khoản. Đăng kí ngay?</a>
-        <button class="form-submit" type="submit">Sign In</button>
+        <button class="form-submit" type="submit">Đăng Nhập</button>
     </form>
 
 </div>

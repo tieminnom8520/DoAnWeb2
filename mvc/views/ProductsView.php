@@ -11,7 +11,7 @@
     <?php
             echo "<base href='${home_url}'>";
     ?>
-    <title>Products Page</title>
+    <title>Trang Sản Phẩm</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -31,8 +31,8 @@
         <div>
             <nav class="menu">
                 <ul>
-                    <li><a href="./home">Home</a></li>
-                    <li><a style="background-color: dodgerblue;" href="products">Products</a></li>
+                    <li><a href="./home">Trang Chủ</a></li>
+                    <li><a style="background-color: dodgerblue;" href="products">Sản Phẩm</a></li>
                     <li><a href="cart"><img style="width:20px;padding:0px;" src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png"></a></li>
                     <?php if($_SESSION['username'] = "1") echo "<li><a href=\"manage/viewProductPage/1\">Admin</a></li><li><a href=\"login/logout\">Logout</a></li>";
                     else echo "<li><a href=\"login/logout\">Logout</a></li>";?>

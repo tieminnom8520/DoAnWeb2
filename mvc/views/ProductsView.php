@@ -26,7 +26,7 @@
 <body>
     <div class="header">
         <div class="logo">
-            <a href="./home"><img src="https://lh3.googleusercontent.com/d/1Rc3H-oqkp8BIRXpcL_EOUMlBeNf5CSll" alt="#"></a>
+            <a href="./home"><img src="./mvc/image/brand_logo.png" alt="#" id="brand_logo"></a>
         </div>
         <div>
             <nav class="menu">
@@ -44,7 +44,7 @@
     <div class="products">
         <div class="type-menu">
             <div class="sub-menu">
-                <div class="menu-title">Departments</div> 
+                <div class="menu-title">Danh Mục Sản Phẩm</div> 
                 <?php 
                     while ($row = mysqli_fetch_array($data["all-type"])){
                         echo '
@@ -104,7 +104,7 @@
 
     <div class="footer">
         <div class="useful-link">
-            <h3>Get To Know Us</h3>
+            <h3>Tìm Hiểu Thêm Về Chúng Tôi</h3>
             <div><a href="#">Facebook</a></div>
             <div><a href="#">Instagram</a></div>
             <div><a href="#">Twitter</a></div>

@@ -32,7 +32,7 @@
 <body>
     <div class="header">
         <div class="logo">
-            <a href="home"><img src="https://lh3.googleusercontent.com/d/1Rc3H-oqkp8BIRXpcL_EOUMlBeNf5CSll" alt=""></a>
+            <a href="home"><img src="./mvc/image/brand_logo.png" alt="#" id="brand_logo"></a>
         </div>
         <div>
             <nav class="menu">
@@ -59,7 +59,7 @@
                 <div class="detail">
                     <div class="attribute"> 
                         Giá : 
-                        <div class="value" id="cost"><?php echo $data["pro"]["gia"] ?>$</div>
+                        <div class="value" id="cost"><?php echo $data["pro"]["gia"] ?>₫</div>
                     </div>
                     <div class="attribute"> 
                         Loại : 
@@ -73,6 +73,7 @@
                 
                 <div class="desc">
                     <h4>Thông Tin Thêm</h4>
+                    <br>
                     <?php echo $data["pro"]["Mota"] ?>
                 </div>
             </div>
@@ -101,7 +102,7 @@
                         </div>
 
                         <div class="order-infor">
-                            <label>Tổng Cộng :</label><label id="total-cost"><?php echo $data["pro"]["gia"] ?>$</label>
+                            <label>Tổng Cộng :</label><label id="total-cost"><?php echo $data["pro"]["gia"] ?>₫</label>
                         </div>
 
                         <div id="add-to-cart-btn">
@@ -120,7 +121,7 @@
                     while ($row = mysqli_fetch_assoc($data["related-pro"])){
                         echo '<div class="product">
                                 <a href="products/productdetail/'.$row["id_mon"].'"><div class="img"><div><img src="./mvc/image/'.$row["Hinhanh"].'" alt="#"></div></div></a>
-                                <h3>'.$row["gia"].'$</h3>
+                                <h3>'.$row["gia"].'₫</h3>
                                 <div class="name">'.$row["ten_mon"].'</div>
                             </div>';
                     }

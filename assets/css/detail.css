@@ -71,6 +71,7 @@ body {
     padding: 10px;
     font-size: x-large;
     font-weight: 700;
+    font-weight: bolder;
 }
 
 .infor .detail {
@@ -80,6 +81,7 @@ body {
 
 .infor .desc {
     padding: 10px;
+    font-size: larger;
 }
 
 .desc h4 {
@@ -88,6 +90,8 @@ body {
 
 .attribute {
     display: flex;
+    font-weight: bold;
+    font-size: larger;
 }
 
 .value {

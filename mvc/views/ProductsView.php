@@ -18,7 +18,10 @@
         <?php include "./assets/css/product.css" ?>
         <?php include "./assets/css/home.css" ?>
     </style>
-
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      />
 </head>
 <body>
     <div class="header">
@@ -68,6 +71,10 @@
 
         <div class="type-product">
             <div class="title">
+                <div class="search-box">
+                    <input id="search-form" type="text" placeholder="Search" onchange="changeUrl()">
+                    <a id="search-btn" href="#"><i class="fas fa-search" ></i></a>
+                </div>
                 <div class="topic">
                     <?php 
                         if (array_key_exists("type", $data)) echo $data["type"];
@@ -76,17 +83,13 @@
                         else echo "All Products";
                     ?>
                 </div>
-                <div class="search-box">
-                    <input id="search-form" type="text" placeholder="Search" onchange="changeUrl()">
-                    <a id="search-btn" href="#"><img style="height:16px;margin:10px;" src="http://assets.stickpng.com/images/585e4ad1cb11b227491c3391.png"></a>
-                </div>
             </div>
             <div class="product-list">
                 <?php 
                     while ($row = mysqli_fetch_assoc($data["all-pro"])){
                         echo '<div class="product">
                                 <a href="products/productdetail/'.$row["id_mon"].'"><div class="product-img"><img src="./mvc/image/'.$row["Hinhanh"].'" alt="#"></div></a>
-                                <div class="product-price">'.$row["gia"].'$</div>
+                                <div class="product-price">'.$row["gia"].'₫</div>
                                 <div class="product-name">'.$row["ten_mon"].'</div>
                             </div>';
                     };

@@ -24,12 +24,12 @@ class manageModal extends db{
         return $id;
     }
     public function getProductManagePaging($page){
-        $skip = (intval($page) - 1) * 5;
+        $skip = (intval($page) - 1) * 10;
         if(intval($page) - 1 == 0){
             $skip = 0;
         }
         
-        $typesql = "SELECT * FROM mon LIMIT ".$skip.", 5;";
+        $typesql = "SELECT * FROM mon LIMIT ".$skip.", 10;";
         $query1 = $this->_query($typesql);
         if(!$query1) return [];
         $types = [];

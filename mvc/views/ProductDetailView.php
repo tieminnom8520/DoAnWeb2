@@ -71,7 +71,24 @@
                         Số Lượng Còn Lại : 
                         <div class="value" id="quantity"><?php echo $data["pro"]["Soluong"] ?></div>
                     </div>
-                </div>
+                    </div>
+                    <div class="attribute">
+                        <label for="Size_Product">Size</label>
+                        <div class="radio-group">
+                        <label>
+                        <input type="radio" name="Size_Product" value="S" required>
+                        S
+                        </label>
+                        <label>
+                        <input type="radio" name="Size_Product" value="M" required>
+                        M
+                        </label>
+                        <label>
+                        <input type="radio" name="Size_Product" value="L" required>
+                        L
+                        </label>
+                    </div>
+    </div>
                 
                 <div class="desc">
                     <h4>Thông Tin Thêm</h4>

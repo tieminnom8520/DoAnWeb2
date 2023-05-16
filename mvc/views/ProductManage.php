@@ -217,7 +217,14 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                     </div>
                     <div class="form-group">
                         <label for="Type_Product">Type</label>
-                        <input type="text" class="form-control" id="Type_Product" name="Type_Product" required>
+                        <select class="form-control" id="Type_Product" name="Type_Product" placeholder="-- Chọn loại sản phẩm --" required>
+                            <option value="" disabled selected hidden>-- Chọn loại sản phẩm --</option>
+                            <option value="Cà Phê">Cà Phê</option>
+                            <option value="Phindi">Phindi</option>
+                            <option value="Trà">Trà</option>
+                            <option value="Bánh">Bánh</option>
+                            <option value="Khác">Khác</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="Price_Product">Price</label>
@@ -232,8 +239,8 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                         <input type="text" class="form-control" id="Detail_Product" name="Detail_Product" required>
                     </div>
                     <div class="form-group">
-                        <label for="Rating_Product">Image</label>
-                        <input type="text" class="form-control" id="Rating_Product" name="Rating_Product" required>
+                     <label for="Rating_Product">Image</label>
+                     <input type="file" class="form-control-file" id="Rating_Product" name="Rating_Product" accept="image/png" required>
                     </div>
                 </form>
             </div>
@@ -244,7 +251,6 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
             </div>
         </div>
         </div>
-
     <form method="POST" id="form_delete"></form>
     <script>
         //show detail

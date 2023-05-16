@@ -6,6 +6,9 @@
     background-size: cover;
 } */
 
+* {
+  font-family: "Quicksand", sans-serif;
+}
 body {
   margin: 0px;
   background-color: rgb(112, 119, 141);
@@ -15,7 +18,9 @@ body {
   display: flex;
   justify-content: space-between;
   color: aliceblue;
-  margin: 15px auto;
+  margin: 0px;
+  padding-bottom: 10px;
+  background-image: linear-gradient(to right, #9ec7a7, #8c8cae);
 }
 
 .menu ul {
@@ -32,7 +37,8 @@ body {
 }
 
 .menu a:hover {
-  background-color: dodgerblue;
+  background-color: #ffd452;
+  color: black;
 }
 
 .intro {
@@ -111,9 +117,10 @@ body {
   background-color: rgb(197, 201, 209);
   margin-bottom: 30px;
   padding: 0 20px 10px 20px;
-  max-width: 1296px;
+  max-width: 1500px;
   min-width: 392px;
   margin: 10px 20px 20px 20px;
+  border-radius: 30px;
 }
 
 .category-box .product-list {
@@ -189,7 +196,7 @@ body {
 }
 
 .footer {
-  background-color: rgb(14, 56, 75);
+  background-image: linear-gradient(to right, #9ec7a7, #8c8cae);
   margin: 0px;
   display: flex;
   justify-content: space-around;
@@ -200,12 +207,18 @@ body {
   display: block;
   text-align: center;
   padding: 10px;
-  color: floralwhite;
+  color: rgb(0, 0, 0);
+  font-size: 25px;
 }
 
 .useful-link a {
   text-decoration: none;
-  color: rgb(180, 180, 180);
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+}
+
+.useful-link a:hover {
+  color: #ffd452;
 }
 
 .useful-link div {

@@ -42,7 +42,10 @@
         }
 
         public function searchProduct($value){
-            $qr = "SELECT * FROM MON WHERE ten_mon LIKE '%".$value."%' OR Loai LIKE '%".$value."%' OR Mota LIKE '%".$value."%'";
+            $qr = "SELECT m.*, ct_m_s.gia 
+            FROM MON as m join ct_mon_size as ct_m_s on m.id_mon = ct_m_s.id_mon
+            WHERE (ten_mon LIKE '%".$value."%' OR Loai LIKE '%".$value."%' OR Mota LIKE '%".$value."%')
+            AND (ct_m_s.id_size = 'S' OR ct_m_s.id_size = 'N')";
             return mysqli_query($this->connect, $qr);
         }
     }

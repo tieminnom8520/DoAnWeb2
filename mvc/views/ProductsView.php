@@ -22,17 +22,24 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
       />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="header">
         <div class="logo">
             <a href="./home"><img src="./mvc/image/brand_logo.png" alt="#" id="brand_logo"></a>
         </div>
+        <div class="search-box">
+                    <input id="search-form" type="text" placeholder="Trà thạch vải..." onchange="changeUrl()">
+                    <a id="search-btn" href="#"><i class="fas fa-search fa-2x" ></i></a>
+        </div>
         <div>
             <nav class="menu">
                 <ul>
                     <li><a href="./home">Trang Chủ</a></li>
-                    <li><a style="background-color: dodgerblue;" href="products">Sản Phẩm</a></li>
+                    <li><a style="background-color:  #ffd452; color : black;" href="products">Sản Phẩm</a></li>
                     <li><a href="cart"><img style="width:20px;padding:0px;" src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png"></a></li>
                     <?php if($_SESSION['username'] = "1") echo "<li><a href=\"manage/viewProductPage/1\">Admin</a></li><li><a href=\"login/logout\">Logout</a></li>";
                     else echo "<li><a href=\"login/logout\">Logout</a></li>";?>
@@ -42,7 +49,8 @@
     </div>
 
     <div class="products">
-        <div class="type-menu">
+        <div class="type-menu"> 
+            <h1 style="color: #9ec7a7;">Bộ lọc tìm kiếm</h1>
             <div class="sub-menu">
                 <div class="menu-title">Danh Mục Sản Phẩm</div> 
                 <?php 
@@ -71,16 +79,13 @@
 
         <div class="type-product">
             <div class="title">
-                <div class="search-box">
-                    <input id="search-form" type="text" placeholder="Search" onchange="changeUrl()">
-                    <a id="search-btn" href="#"><i class="fas fa-search" ></i></a>
-                </div>
+                
                 <div class="topic">
                     <?php 
                         if (array_key_exists("type", $data)) echo $data["type"];
                         else if (array_key_exists("price", $data)) echo $data["price"];
-                        else if (array_key_exists("search", $data)) echo "Result for '".$data["search"]."'";
-                        else echo "All Products";
+                        else if (array_key_exists("search", $data)) echo "Kết quả tìm kiếm cho <search style='color : #ffd452;'>'".$data["search"]."'</search>";
+                        else echo "Tất cả sản phẩm";
                     ?>
                 </div>
             </div>
@@ -91,6 +96,7 @@
                                 <a href="products/productdetail/'.$row["id_mon"].'"><div class="product-img"><img src="./mvc/image/'.$row["Hinhanh"].'" alt="#"></div></a>
                                 <div class="product-price">'.$row["gia"].'₫</div>
                                 <div class="product-name">'.$row["ten_mon"].'</div>
+                                <a href="products/productdetail/'.$row["id_mon"].'"><div class="product-ct">Click để xem chi tiết</div></a>
                             </div>';
                     };
                 ?>

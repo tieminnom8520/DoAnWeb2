@@ -27,7 +27,9 @@
             document.getElementById("total-cost").innerHTML = productCost*curQuantity + "$";
         }
     </script>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="header">
@@ -38,7 +40,7 @@
             <nav class="menu">
                 <ul>
                     <li><a href="home">Trang Chủ</a></li>
-                    <li><a style="background-color: dodgerblue;" href="products">Sản Phẩm</a></li>
+                    <li><a style="background-color: #ffd452;color :black;" href="products">Sản Phẩm</a></li>
                     <li><a href="cart"><img style="width:20px;padding:0px;" src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png"></a></li>
                     <?php if($_SESSION['username'] = "1") echo "<li><a href=\"manage/viewProductPage/1\">Admin</a></li><li><a href=\"login/logout\">Logout</a></li>";
                     else echo "<li><a href=\"login/logout\">Logout</a></li>";?>
@@ -74,7 +76,9 @@
                 <div class="desc">
                     <h4>Thông Tin Thêm</h4>
                     <br>
+                    <mota>
                     <?php echo $data["pro"]["Mota"] ?>
+                    </mota>
                 </div>
             </div>
 
@@ -120,7 +124,17 @@
                 <?php 
                     while ($row = mysqli_fetch_assoc($data["related-pro"])){
                         echo '<div class="product">
-                                <a href="products/productdetail/'.$row["id_mon"].'"><div class="img"><div><img src="./mvc/image/'.$row["Hinhanh"].'" alt="#"></div></div></a>
+                                <a href="products/productdetail/'.$row["id_mon"].'">
+                                    <div class="img">
+                                        <div>
+                                            <img src="./mvc/image/'.$row["Hinhanh"].'" alt="#">
+                                        </div>
+                                        <div class="gradient">
+                                           
+                                        </div>
+                                        <h1>Chi tiết</h1>
+                                    </div>
+                                </a>
                                 <h3>'.$row["gia"].'₫</h3>
                                 <div class="name">'.$row["ten_mon"].'</div>
                             </div>';

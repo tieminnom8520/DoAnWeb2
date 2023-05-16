@@ -22,6 +22,10 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
       />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div class="header">
@@ -31,7 +35,7 @@
         <div>
             <nav class="menu">
                 <ul>
-                    <li><a style="background-color: dodgerblue;" href="#">Trang Chủ</a></li>
+                    <li><a style="background-color:  #ffd452; color :black;" href="#">Trang Chủ</a></li>
                     <li><a href="products">Sản Phẩm</a></li>
                     <li><a href="cart"><img style="width:20px;padding:0px;" src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png"></a></li>
                     

@@ -17,11 +17,16 @@
     <style>
         <?php include "./assets/css/home.css" ?>
     </style>
+    <link rel="stylesheet" href="./assets/css/banner.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      />
 </head>
 <body>
     <div class="header">
         <div class="logo">
-            <a href="./home"><img src="https://lh3.googleusercontent.com/d/1Rc3H-oqkp8BIRXpcL_EOUMlBeNf5CSll" alt="#"></a>
+            <a href="./home"><img src="./mvc/image/brand_logo.png" alt="#" id="brand_logo"></a>
         </div>
         <div>
             <nav class="menu">
@@ -37,25 +42,18 @@
         </div>
     </div>
 
-    <div class="intro">
-        <div class="intro-desc">
-            <h1>GIVE YOUR WORKOUT<br>A NEW STYLE!</h1>
-            <p>Success isn't always about greatness.
-                It's about consistency. Consistent
-                hard work gains success. Greatness will come.
-            </p>
-            <div class="explore-btn"><a href ="products">Explore Now!</a></div>
+    <a href="#" alt="banner1-Trà dưa hấu vải">
+        <div class="banner_box">
+           <img src="./mvc/image/banner/banner_1/banner.png" class="banner">
+            <img src="./mvc/image/banner/banner_1/banner_ob_1.png" class="banner_object" id="object_1">
+            <img src="./mvc/image/banner/banner_1/banner_ob_2.png" class="banner_object" id="object_2">
+            <img src="./mvc/image/banner/banner_1/banner_ob_3.png" class="banner_object" id="object_3">
+            <img src="./mvc/image/banner/banner_1/banner_ob_4.png" class="banner_object" id="object_4">
+            <img src="./mvc/image/banner/banner_1/banner_ob_5.png" class="banner_object" id="object_5">
+            <img src="./mvc/image/banner/banner_1/banner_ob_6.png" class="banner_object" id="object_6">
         </div>
-
-        <div class="intro-image">
-        </div>
-    </div>
+    </a>
     
-    <div class="ads">
-        <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Deals_1x._SY304_CB430401028_.jpg" alt="#" style="border-radius: 50px 0 0 50px;">
-        <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_PC_1x._SY304_CB431800965_.jpg" alt="#">
-        <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_HomeBedding_Single_Cat_1x._SY304_CB418596953_.jpg" alt="#" style="border-radius: 0 50px 50px 0;">
-    </div>
     <div class="category-list">
 
         <?php foreach ($data["all-type"] as $value): ?>

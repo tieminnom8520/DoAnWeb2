@@ -4,7 +4,7 @@
             $qr = "SELECT m.*, ct_m_s.gia 
             FROM MON as m 
             join ct_mon_size as ct_m_s ON m.id_mon = ct_m_s.id_mon
-            where ct_m_s.id_size = 'S'";
+            where (ct_m_s.id_size = 'S' or ct_m_s.id_size='N')";
             return mysqli_query($this->connect, $qr);
         }
 

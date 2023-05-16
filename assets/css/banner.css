@@ -1,0 +1,159 @@
+.banner_box {
+  width: 100%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  max-height: 600px;
+}
+
+.banner {
+  width: 100%;
+}
+.banner_object {
+  position: absolute;
+}
+#object_1 {
+  left: 503px;
+  height: 100%;
+  z-index: 1;
+}
+#object_2 {
+  left: 826px;
+  top: 230px;
+  height: 28%;
+  z-index: 2;
+}
+#object_3 {
+  left: 211px;
+  top: 375px;
+  height: 39%;
+}
+#object_4 {
+  left: 366px;
+  top: 208px;
+  height: 20%;
+}
+#object_5 {
+  left: 320px;
+  top: 0px;
+  height: 25%;
+}
+#object_6 {
+  left: 1067px;
+  top: 538px;
+  height: 10%;
+}
+.banner_box:hover > #object_1 {
+  height: 105%;
+  transition: 2s;
+}
+.banner_box:hover > #object_2 {
+  height: 33%;
+  transition: 2s;
+}
+.banner_box:hover > #object_3 {
+  left: 190px;
+  top: 380px;
+  transition: 2s;
+}
+.banner_box:hover > #object_4 {
+  height: 23%;
+  transition: 2s;
+}
+.banner_box:hover > #object_5 {
+  left: 300px;
+  top: -20px;
+  transition: 2s;
+}
+.banner_box:hover > #object_6 {
+  height: 13%;
+  transition: 2s;
+}
+
+#banner2 {
+  background-image: linear-gradient(to right, #3e5151, #f8ffae);
+  height: 600px;
+}
+
+#object_7 {
+  top: 200px;
+  left: -100px;
+  height: 70%;
+  z-index: 2;
+  opacity: 0;
+}
+#object_8 {
+  top: 100px;
+  left: -200px;
+  height: 70%;
+  z-index: 1;
+  opacity: 0;
+}
+#BanhNgot {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  top: 200px;
+  left: 650px;
+}
+#BanhNgotChiTiet {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  top: 800px;
+  left: 900px;
+}
+
+#banner2:hover > #object_7 {
+  left: 400px;
+  opacity: 1;
+  transition: 2s;
+}
+#banner2:hover > #object_8 {
+  left: 100px;
+  opacity: 1;
+  transition: 2s;
+}
+#banner2:hover > #BanhNgot {
+  left: 900px;
+  transition: 2s;
+}
+#banner2:hover > #BanhNgotChiTiet {
+  top: 350px;
+  transition: 2s;
+}
+#banner3 {
+  background-image: url("./image/banner/banner_3/banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+}
+#banner3_text {
+  font-size: 50px;
+  font-weight: bold;
+  font-family: sans-serif;
+  top: 100px;
+  left: 500px;
+  color: white;
+  z-index: 2;
+}
+#banner3_nut {
+  width: 500px;
+  height: 100px;
+  top: 311px;
+  left: 740px;
+  border-radius: 10px;
+  border: 3px solid white;
+  color: white;
+  background-color: transparent;
+  font-size: 50px;
+  z-index: 2;
+  cursor: pointer;
+}
+#gradient_overlay {
+  width: 100%;
+  height: 600px;
+  background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
+  opacity: 0.4;
+  z-index: 1;
+}
+.parent-hovered > #gradient_overlay {
+  opacity: 0.9;
+  transition: 2s;
+}

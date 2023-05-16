@@ -21,10 +21,9 @@ class manage extends controller{
         $price = $_POST['Price_Product'];
         $quantity = $_POST['Quantity_Product'];
         $detail = $_POST['Detail_Product'];
-        $brand = $_POST['Brand_Product'];
         $rating = $_POST['Rating_Product'];
         
-        $demoData = $this->model('manageModal')->editProductManage($id,$name,$type,$price,$quantity,$detail,$brand,$rating);
+        $demoData = $this->model('manageModal')->editProductManage($id,$name,$type,$price,$quantity,$detail,$rating);
         header("Location: " . geturl(). "/manage/viewProductPage/1");
     }
     public function viewUserPage($page){

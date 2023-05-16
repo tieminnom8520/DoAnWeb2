@@ -99,10 +99,10 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                                         <td class="Type_Product_value"><?=$value['Loai']?></td>
                                         <td class="Price_Product_value"><?=$value['trangthai']?></td>
                                         <td class="Quantity_Product_value"><?=$value['Soluong']?></td>
-                                        <td class="Rating_Product_value"><a href="products/productdetail/<?=$value["id_mon"]?>">Link</a></td>
+                                        <td class="Rating_Product_value"><?=$value['Hinhanh']?><a href="products/productdetail/<?=$value["id_mon"]?>">Link</a></td>
                                         <td>
                                             <i class="bi bi-plus-circle-fill detail-product" data-id="<?=$value['id_mon']?>"></i>
-                                            <i class="bi bi-gear-fill edit-product" data-id="<?=$value['id_mon']?>--<?=$value['ten_mon']?>--<?=$value['Loai']?>--<?=$value['product_price']?>--<?=$value['Soluong']?>--<?=$value['Mota']?>--<?=$value['hinhanh']?>" data-toggle="modal" data-target="#exampleModalScrollable"></i>
+                                            <i class="bi bi-gear-fill edit-product" data-id="<?=$value['id_mon']?>--<?=$value['ten_mon']?>--<?=$value['Loai']?>--<?=$value['trangthai']?>--<?=$value['Soluong']?>--<?=$value['Mota']?>--<?=$value['Hinhanh']?>" data-toggle="modal" data-target="#exampleModalScrollable"></i>
                                             <i class="bi bi-x-circle-fill delete-product" data-toggle="modal" data-target="#exampleModal" data-id="<?=$value['id_mon']?>"></i>
                                         </td>
                                     </tr>
@@ -289,7 +289,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                 document.getElementById('Price_Product').value = arr_value[3];
                 document.getElementById('Quantity_Product').value = arr_value[4];
                 document.getElementById('Detail_Product').value = arr_value[5];
-                document.getElementById('Rating_Product').value = arr_value[7];
+                document.getElementById('Rating_Product').value = arr_value[6];
 
             })
         })

@@ -16,22 +16,36 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/app.css">
 
     
 </head>
 <body>
-
+<script>
+  function revealPass(){
+    let reveal = document.getElementById("password").type;
+    if(reveal == "password"){
+      document.getElementById("password").type = "text";
+      document.getElementById("reveal-pass").innerHTML = "<i class='fa fa-eye-slash'></i>";
+      document.getElementById("reveal-pass").title = "ẩn mật khẩu";
+    }
+    else{
+      document.getElementById("password").type = "password";
+      document.getElementById("reveal-pass").innerHTML = "<i class='fa fa-eye'></i>";
+      document.getElementById("reveal-pass").title = "hiện mật khẩu";
+    }
+  }
+</script>
 <div class="main">
     <form method="post" class="form" id="form-2" action="login/auth">
-        <h3 class="heading">Sign In</h3>
-        <p class="desc">To connect to our shop</p>
+        <!-- <h3 class="heading">Đăng nhập</h3> -->
+        <!-- <p class="desc">To connect to our shop</p> -->
         <!-- {{#if message}}
             <div class="alert alert-danger" role="alert">{{message}}</div>
         {{/if}} -->
-        <div class="spacer"></div>
-
+        <!-- <div class="spacer"></div> -->
+        <div class="login_logo"><img src="./mvc/image/brand_logo.png" width='250px'></div>
         <div class="form-group">
             <label for="exampleInputEmail1" class="form-label">Email:</label>
             <input id="email" name="email" type="email" aria-describedby="emailHelp" placeholder="Ex: email@domain.com"
@@ -40,9 +54,14 @@
         </div>
 
         <div class="form-group">
-            <label for="exampleInputPassword1" class="form-label">Password:</label>
-            <input id="password" name="password" type="password" placeholder="Enter password..." class="form-control"
+            <label for="exampleInputPassword1" class="form-label">Mật khẩu :</label>
+            <div class="password_field" style="display:flex;">
+              <input id="password" name="password" type="password" placeholder="Enter password..." class="form-control"
                 required>
+              <button id="reveal-pass" type="button" title="hiện mật khẩu" onclick="revealPass();">
+                <i class='fa fa-eye'></i>
+              </button>
+            </div>
             <span class="form-message"></span>
         </div>
         <!-- <div class="form-check">
@@ -221,18 +240,29 @@ html {
   padding: 32px 24px;
   text-align: center;
   background: #fff;
-  border-radius: 2px;
+  border-radius: 20px;
+  border : 3px solid #9ec7a7;
   margin: 24px;
   align-self: center;
   box-shadow: 0 2px 5px 0 rgba(51,62,73,.1);
+  z-index: 2;
+}
+#form-2{
+  background-color: rgb(76, 83, 102);
+}
+#form-2 h3{
+  color : #ffd452;
+}
+#form-2 label{
+  color: #9ec7a7;
 }
 .form .heading {
   font-size: 2rem;
 }
 .form .desc {
   text-align: center;
-  color: #636d77;
-  font-size: 1.2rem;
+  color: #ffd452;
+  font-size: 20px;
   font-weight: lighter;
   line-height: 2.4rem;
   margin-top: 16px;
@@ -260,14 +290,18 @@ html {
 .form-control {
   height: 40px;
   padding: 8px 12px;
-  border: 1px solid #b3b3b3;
+  border: 3px solid  #9ec7a7;
+  color: #9ec7a7;
+  background-color: rgb(112, 119, 141);
   border-radius: 3px;
   outline: none;
   font-size: 1.1rem;
 }
-
-.form-control:hover {
-  border-color: #1dbfaf;
+.form-control::placeholder{
+  color: #9ec7a7;
+}
+.form-control:focus{
+  background-color: rgb(112, 119, 141);
 }
 
 .form-group.invalid .form-control {
@@ -277,7 +311,26 @@ html {
 .form-group.invalid .form-message {
   color: #f33a58;
 }
+#password{
+  width : 86%;
+  border-right: none;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
 
+#reveal-pass{
+  width : 14%;
+  border : 3px solid #9ec7a7;
+  color: #9ec7a7;
+  border-left: none;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background: rgb(112, 119, 141);
+  cursor: pointer;
+}
+#reveal-pass:focus{
+  outline: none;
+}
 .form-message {
   font-size: 1.2rem;
   line-height: 1.6rem;
@@ -286,20 +339,21 @@ html {
 
 .form-submit {
   outline: none;
-  background-color: var(--red-color);
+  background-image: linear-gradient(to right, rgb(76, 83, 102),rgb(76, 83, 102));
   margin-top: 12px;
   padding: 12px 16px;
   font-weight: 600;
   color: #fff;
-  border: none;
+  border: 3px solid  #9ec7a7;
   width: 100%;
-  font-size: 14px;
+  font-size: 20px;
   border-radius: 8px;
   cursor: pointer;
+
 }
 
 .form-submit:hover {
-  background-color: #fdabb1;
+  background-image: linear-gradient(to right, #9ec7a7, #8c8cae);
 }
 
 .spacer {
@@ -318,11 +372,30 @@ input[readonly] {
   font-size:25px;
 }
 .main{
-  background: url("https://lh3.googleusercontent.com/d/1YqkjSadW714piyVpkKu6IeG9uUNN1ZOa") no-repeat center center fixed; 
+  background: url("./mvc/image/login_background.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    
+}
+.main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: url("./mvc/image/login_background.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+  filter: blur(4px);
+  z-index: 1;
+
 }
 </style>
 <script>

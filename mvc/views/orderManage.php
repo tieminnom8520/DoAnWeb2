@@ -39,6 +39,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                         <a class="nav-link" href="./home">Quay Về Trang Chủ<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
+                <ul><img src="./mvc/image/brand_logo.png" width="200px"></ul>
             </div>
 
 

@@ -71,8 +71,10 @@
                         $i++;
                     ?>
                         <div class="product">
-                            <a href="products/productdetail/<?=$pro["id_mon"]?>"><img src=' ./mvc/image/<?php echo $pro["Hinhanh"] ?>' alt="#"></a>
+                            <a href="products/productdetail/<?=$pro["id_mon"]?>"><img src=' ./mvc/image/<?php echo $pro["Hinhanh"] ?>' alt="#">
                             <p><?=substr($pro["ten_mon"], 0, 50)?></p>
+                            <div class="ct">Chi Tiết</div>
+                            </a>
                         </div>
                     
                     <?php 
@@ -89,7 +91,9 @@
                 <?php 
                     while ($row = mysqli_fetch_array($data["all-pro"])){
                         echo '<div class="product">
-                                <a href="products/productdetail/'.$row["id_mon"].'"><img src="./mvc/image/'.$row["Hinhanh"].'" alt="#"></a>
+                                <a href="products/productdetail/'.$row["id_mon"].'"><img src="./mvc/image/'.$row["Hinhanh"].'" alt="#">
+                                <div class="ct">Chi Tiết</div>
+                                </a>
                             </div>';
                     };
                 ?>

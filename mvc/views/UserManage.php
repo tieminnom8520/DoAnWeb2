@@ -39,6 +39,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                         <a class="nav-link" href="./home">Quay Về Trang Chủ<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
+                <ul><img src="./mvc/image/brand_logo.png" width="200px"></ul>
             </div>
 
 
@@ -122,7 +123,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                         </table>
                         <div class="show_quantity">
                             <div class="show_quantity_item">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" id="button_add" data-target="#exampleModalScrollable">ADD USER</button>
+                                <button type="button" class="btn btn-warning" data-toggle="modal" id="button_add" data-target="#exampleModalScrollable">ADD USER</button>
                             </div>
                             <div class="show_quantity_page">
                                 <nav aria-label="...">

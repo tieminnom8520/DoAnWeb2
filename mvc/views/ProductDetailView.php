@@ -70,7 +70,7 @@
                     <div class="attribute"> 
                         Số Lượng Còn Lại : 
                         <div class="value" id="quantity"><?php echo $data["pro"]["Soluong"] ?></div>
-                    <?php if ($pro['id_size'] !== 'N'): ?>
+                    <?php if ($pro['Loai'] !== "Bánh"): ?>
                     </div>
                     </div>
                     <div class="attribute">

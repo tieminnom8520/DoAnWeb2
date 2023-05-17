@@ -1,7 +1,7 @@
 <?php
 require_once "./mvc/core/basehref.php";
 $home_url = getUrl().'/';
-if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
+if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
     header("Location: " . geturl(). "/login/loginView");
 }
 ?>
@@ -83,12 +83,13 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Password</th>
+                                    <th scope="col">Tên</th>
+                                    <th scope="col">Mật Khẩu</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Avatar</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">SĐT</th>
+                                    <th scope="col">Địa Chỉ</th>
+                                    <th scope="col">Chức Vụ</th>
+                                    <th scope="col">Sửa</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -100,9 +101,10 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                                         <td class="Type_Product_value">*******</td>
                                         <td class="Price_Product_value"><?=$value['email']?></td>
                                         <td class="Quantity_Product_value"><?=$value['sdt']?></td>
+                                        <td class="Address_Product_value"><?=$value['diachi']?></td>
                                         <td class="Rating_Product_value"><?=$value['chucvu']?></td>
                                         <td>
-                                            <i class="bi bi-gear-fill edit-product" data-id="<?=$value['id_taikhoan']?>--<?=$value['ten']?>--<?=$value['password']?>--<?=$value['email']?>--<?=$value['sdt']?>--<?=$value['chucvu']?>" data-toggle="modal" data-target="#exampleModalScrollable"></i>
+                                            <i class="bi bi-gear-fill edit-product" data-id="<?=$value['id_taikhoan']?>--<?=$value['ten']?>--<?=$value['password']?>--<?=$value['email']?>--<?=$value['sdt']?>--<?=$value['diachi']?>--<?=$value['chucvu']?>" data-toggle="modal" data-target="#exampleModalScrollable"></i>
                                             <i class="bi bi-x-circle-fill delete-product" data-toggle="modal" data-target="#exampleModal" data-id="<?=$value['id_taikhoan']?>"></i>
                                         </td>
                                     </tr>
@@ -203,13 +205,13 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
             <div class="modal-body">
                 <form id="form_event" method="POST" class="was-validated">
                     <div class="form-group">
-                        <label for="Name_User">Name</label>
+                        <label for="Name_User">Tên</label>
                         <input type="text" class="form-control" id="Name_User" name="Name_User" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group">
-                        <label for="Password_User">Password</label>
+                        <label for="Password_User">Mật Khẩu</label>
                         <input type="text" class="form-control" id="Password_User" name="Password_User" required>
                     </div>
                     <div class="form-group">
@@ -217,11 +219,15 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                         <input type="text" class="form-control" id="Email_User" name="Email_User" required>
                     </div>
                     <div class="form-group">
-                        <label for="Phone_User">Phone</label>
+                        <label for="Phone_User">SĐT</label>
                         <input type="text" class="form-control" id="Phone_User" name="Phone_User" required>
                     </div>
                     <div class="form-group">
-                        <label for="Avatar_User">Role</label>
+                        <label for="Address_User">Địa Chỉ</label>
+                        <input type="text" class="form-control" id="Address_User" name="Address_User" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Avatar_User">Chức Vụ</label>
                         <input type="text" class="form-control" id="Avatar_User" name="Avatar_User" required>
                     </div>
                 </form>
@@ -277,7 +283,8 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                 document.getElementById('Password_User').value = arr_value[2];
                 document.getElementById('Email_User').value = arr_value[3];
                 document.getElementById('Phone_User').value = arr_value[4];
-                document.getElementById('Avatar_User').value = arr_value[5];
+                document.getElementById('Address_User').value = arr_value[5];
+                document.getElementById('Avatar_User').value = arr_value[6];
 
             })
         })
@@ -287,13 +294,14 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "1"){
                 document.getElementById('Price_Product').value = '';
                 document.getElementById('Quantity_Product').value = '';
                 document.getElementById('Detail_Product').value = '';
+                document.getElementById('Address_Product').value = '';
                 document.getElementById('Rating_Product').value = '';
         })
         document.getElementById('button_form_event').addEventListener('click', () => {
             var form_event = document.getElementById('form_event');
             if(arr_value) form_event.action = `manage/editUser/${arr_value[0]}`;
             else form_event.action = `manage/editUser/-1`
-            if(document.getElementById('Name_User').value&&document.getElementById('Password_User')&&document.getElementById('Email_User').value&&document.getElementById('Phone_User').value)
+            if(document.getElementById('Name_User').value&&document.getElementById('Password_User')&&document.getElementById('Email_User').value&&document.getElementById('Phone_User').value&&document.getElementById('Address_User').value)
                 form_event.submit();
         })
         

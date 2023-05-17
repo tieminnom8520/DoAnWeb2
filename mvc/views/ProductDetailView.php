@@ -42,7 +42,7 @@
                     <li><a href="home">Trang Chủ</a></li>
                     <li><a style="background-color: #ffd452;color :black;" href="products">Sản Phẩm</a></li>
                     <li><a href="cart"><img style="width:20px;padding:0px;" src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png"></a></li>
-                    <?php if($_SESSION['username'] = "1") echo "<li><a href=\"manage/viewProductPage/1\">Admin</a></li><li><a href=\"login/logout\">Logout</a></li>";
+                    <?php if($_SESSION['username'] = "admin") echo "<li><a href=\"manage/viewProductPage/1\">Admin</a></li><li><a href=\"login/logout\">Logout</a></li>";
                     else echo "<li><a href=\"login/logout\">Logout</a></li>";?>
                 </ul>
             </nav>
@@ -70,9 +70,18 @@
                     <div class="attribute"> 
                         Số Lượng Còn Lại : 
                         <div class="value" id="quantity"><?php echo $data["pro"]["Soluong"] ?></div>
+                    <?php if ($pro['Loai'] !== "Bánh"): ?>
+                    </div>
+                    </div>
+                    <div class="attribute">
+                    <label for="Size_Product">Size&nbsp;&nbsp;&nbsp;</label>
+                    <div class="radio-group">
+                        <button onclick="location.href='products/productdetail/<?php echo $pro['id_mon']; ?>/S'">S</button>
+                        <button onclick="location.href='products/productdetail/<?php echo $pro['id_mon']; ?>/M'">M</button>
+                        <button onclick="location.href='products/productdetail/<?php echo $pro['id_mon']; ?>/L'">L</button>
+                    <?php endif; ?>
                     </div>
                 </div>
-                
                 <div class="desc">
                     <h4>Thông Tin Thêm</h4>
                     <br>
@@ -117,6 +126,7 @@
 
             </div>
         </div>
+
 
         <div class="related-product">
             <h2>Các Sản Phẩm Liên Quan</h2>

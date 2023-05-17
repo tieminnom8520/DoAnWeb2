@@ -24,12 +24,12 @@ class manageModal extends db{
         return $id;
     }
     public function getProductManagePaging($page){
-        $skip = (intval($page) - 1) * 5;
+        $skip = (intval($page) - 1) * 10;
         if(intval($page) - 1 == 0){
             $skip = 0;
         }
         
-        $typesql = "SELECT * FROM mon LIMIT ".$skip.", 5;";
+        $typesql = "SELECT * FROM mon LIMIT ".$skip.", 10;";
         $query1 = $this->_query($typesql);
         if(!$query1) return [];
         $types = [];
@@ -53,24 +53,26 @@ class manageModal extends db{
         }
         return $types;
     }
-    public function deleteUserManage($id){
-        $typesql = "DELETE FROM taikhoan WHERE id_taikhoan=" . $id . ";";
+    public function deleteUserManage($id1){
+        $typesql = "DELETE FROM taikhoan WHERE id_taikhoan='".$id1."'";
         $query1 = $this->_query($typesql);
         return $query1;
     }
-    public function editUserManage($id,$Name,$Password,$Email,$Phone,$Avatar){
-        if($id != -1){
+    public function editUserManage($id1,$Name,$Password,$Email,$Phone,$Address,$Avatar){
+        if($id1 != -1){
             $typesql1 = "UPDATE taikhoan
-                        SET ten='".$Name."', password='".$Password."', email='".$Email."', sdt=".$Phone.", chucvu='".$Avatar."'
-                        WHERE id_taikhoan=".$id.";";
+                         SET ten='".$Name."', password='".$Password."', email='".$Email."', sdt='".$Phone."', diachi='".$Address."', chucvu='".$Avatar."'
+                         WHERE id_taikhoan='".$id1."'";
             $query1 = $this->_query($typesql1);
         }else{
+            $ida = "KH" . $_SESSION['id_num'];
+            $_SESSION['id_num']++;
             $Password = password_hash($Password, PASSWORD_DEFAULT);
-            $typesql1 = "insert into taikhoan (ten, password, email, sdt, chucvu)
-            values ('".$Name."', '".$Password."', '".$Email."', ".$Phone.", '".$Avatar."');";
+            $typesql1 = "insert into taikhoan (id_taikhoan, ten, password, diachi, email, sdt, chucvu)
+            values ('".$ida."','".$Name."', '".$Password."', '".$Address."', '".$Email."', '".$Phone."', '".$Avatar."');";
             $query1 = $this->_query($typesql1);
         }
-        return $id;
+        return $id1;
     }
     public function getOrderPaging($page){
         $skip = (intval($page) - 1) * 5;

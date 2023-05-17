@@ -26,7 +26,8 @@
             $password = $_POST['password'];
             $email = $_POST['email'];
             $sdt = $_POST['sdt'];
-            $demoData = $this->model('authModal')->authRegister($ten,$password, $email,$sdt);
+            $address = $_POST['address'];
+            $demoData = $this->model('authModal')->authRegister($ten,$password, $email,$sdt, $address);
             if($demoData != "") echo $demoData;
             else header("Location: " . geturl(). "/login/loginView");
         }

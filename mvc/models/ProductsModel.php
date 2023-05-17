@@ -29,10 +29,13 @@
         }
 
         public function getProduct($id_mon){
+            $currentUrl = $_SERVER['REQUEST_URI'];
+            $urlParts = explode('/', $currentUrl);
+            $lastPart = end($urlParts);
             $qr = "SELECT m.*,ct_m_s.gia
             FROM MON as m 
             join ct_mon_size as ct_m_s on m.id_mon = ct_m_s.id_mon 
-            WHERE m.id_mon = '$id_mon' AND (ct_m_s.id_size = 'S' OR ct_m_s.id_size = 'N')";
+            WHERE m.id_mon = '$id_mon' AND (ct_m_s.id_size = '$lastPart' OR ct_m_s.id_size = 'N' OR ct_m_s.id_size = 'S')";
             return mysqli_query($this->connect, $qr);
         }
 

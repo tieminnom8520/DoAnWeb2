@@ -38,14 +38,15 @@ class manage extends controller{
         $demoData = $this->model('manageModal')->deleteUserManage($id);
         header("Location: " . geturl(). "/manage/viewUserPage/1");
     }
-    public function editUser($id){
+    public function editUser($id1){
         $Name = $_POST['Name_User'];
         $Password = $_POST['Password_User'];
         $Email = $_POST['Email_User'];
         $Phone = $_POST['Phone_User'];
+        $Address = $_POST['Address_User'];
         $Avatar = $_POST['Avatar_User'];
         
-        $demoData = $this->model('manageModal')->editUserManage($id,$Name,$Password,$Email,$Phone,$Avatar);
+        $demoData = $this->model('manageModal')->editUserManage($id1,$Name,$Password,$Email,$Phone,$Address,$Avatar);
         header("Location: " . geturl(). "/manage/viewUserPage/1");
     }
     public function note(){

@@ -54,7 +54,7 @@ class manageModal extends db{
         return $types;
     }
     public function deleteUserManage($id1){
-        $typesql = "DELETE FROM taikhoan WHERE id_taikhoan=" . $id1 . ";";
+        $typesql = "DELETE FROM taikhoan WHERE id_taikhoan='".$id1."'";
         $query1 = $this->_query($typesql);
         return $query1;
     }

@@ -70,26 +70,18 @@
                     <div class="attribute"> 
                         Số Lượng Còn Lại : 
                         <div class="value" id="quantity"><?php echo $data["pro"]["Soluong"] ?></div>
+                    <?php if ($pro['id_size'] !== 'N'): ?>
                     </div>
                     </div>
                     <div class="attribute">
-                        <label for="Size_Product">Size</label>
-                        <div class="radio-group">
-                        <label>
-                        <input type="radio" name="Size_Product" value="S" required>
-                        S
-                        </label>
-                        <label>
-                        <input type="radio" name="Size_Product" value="M" required>
-                        M
-                        </label>
-                        <label>
-                        <input type="radio" name="Size_Product" value="L" required>
-                        L
-                        </label>
+                    <label for="Size_Product">Size&nbsp;&nbsp;&nbsp;</label>
+                    <div class="radio-group">
+                        <button onclick="location.href='products/productdetail/<?php echo $pro['id_mon']; ?>/S'">S</button>
+                        <button onclick="location.href='products/productdetail/<?php echo $pro['id_mon']; ?>/M'">M</button>
+                        <button onclick="location.href='products/productdetail/<?php echo $pro['id_mon']; ?>/L'">L</button>
+                    <?php endif; ?>
                     </div>
-    </div>
-                
+                </div>
                 <div class="desc">
                     <h4>Thông Tin Thêm</h4>
                     <br>
@@ -134,6 +126,7 @@
 
             </div>
         </div>
+
 
         <div class="related-product">
             <h2>Các Sản Phẩm Liên Quan</h2>

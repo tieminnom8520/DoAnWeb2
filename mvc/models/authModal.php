@@ -29,17 +29,17 @@ class authModal extends db{
         }     
     } 
 
-    public function authRegister($ten,$password, $email,$sdt){
+    public function authRegister($ten,$password, $email,$sdt , $address){
         $password = password_hash($password, PASSWORD_DEFAULT);
-        if(!($ten&&$password&& $email&&$sdt)) return "<script>
+        if(!($ten&&$password&& $email&&$sdt &&$address)) return "<script>
             alert('Thông tin nhập thiếu. Mời nhập lại');
             location.href = '".geturl()."/login/registerView';
         </script>";
         $id = "KH" . $_SESSION['id_num'];
         $_SESSION['id_num']++;
 
-        $typesql1 = "insert into taikhoan (id_taikhoan,ten,	password,	email,	sdt)
-        values ('".$id."','".$ten."', '".$password."', '".$email."', '".$sdt."');";
+        $typesql1 = "insert into taikhoan (id_taikhoan, ten, password,	email,	sdt, diachi)
+        values ('".$id."','".$ten."', '".$password."', '".$email."', '".$sdt."', '".$address."');";
         if (!$this->_query($typesql1)) {
             return "<script>
                 alert('Thông tin nhập thiếu. Mời nhập lại');

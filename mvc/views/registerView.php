@@ -48,6 +48,12 @@
       </div>
 
       <div class="form-group">
+        <label for="address" class="form-label">Địa Chỉ</label>
+        <input id="address" name="address" type="text" placeholder="Ex: 273 An Dương Vương" class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
         <label for="password" class="form-label">Mật Khẩu</label>
         <input id="password" name="password" type="password" placeholder="Enter password" class="form-control">
         <span class="form-message"></span>

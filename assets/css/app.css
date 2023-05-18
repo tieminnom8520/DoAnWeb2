@@ -273,3 +273,7 @@ h2 {
 .modal-footer {
   background-image: linear-gradient(to right, #9ec7a7, #8c8cae);
 }
+
+.navbar {
+  background-color: rgb(76, 82, 103);
+}

@@ -46,7 +46,9 @@ h2 {
   width: 100%;
   height: 60px; /* Height of the footer */
 }
-
+.collapse {
+  justify-content: space-between;
+}
 .checkbox-select-all-options {
   width: 180px;
   margin: 0 16px;
@@ -216,7 +218,7 @@ h2 {
   padding: 20px;
   position: absolute;
   width: 100%;
-  top: 700px;
+  top: 800px;
 }
 
 .useful-link {
@@ -243,4 +245,31 @@ h2 {
 
 .menu-right {
   padding: 0;
+}
+
+.modal-header {
+  background-image: linear-gradient(to right, #9ec7a7, #8c8cae);
+}
+.modal-header .modal-title {
+  color: #ffd452;
+}
+.modal-content {
+  background-color: rgb(112, 119, 141);
+}
+.close {
+  background-color: #ffd452;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+}
+.modal-body {
+  color: white;
+}
+.modal-body label {
+  color: #9ec7a7;
+  font-size: 20px;
+}
+.modal-footer {
+  background-image: linear-gradient(to right, #9ec7a7, #8c8cae);
 }

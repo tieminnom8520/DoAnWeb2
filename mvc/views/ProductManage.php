@@ -1,7 +1,7 @@
 <?php
 require_once "./mvc/core/basehref.php";
 $home_url = getUrl().'/';
-if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
+if (!$_SESSION['username'] && $_SESSION['username'] == "admin"){
     header("Location: " . geturl(). "/login/loginView");
 }
 ?>
@@ -88,6 +88,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                                     <th scope="col">Số Lượng</th>
                                     <th scope="col">Hình Ảnh</th>
                                     <th scope="col">Sửa</th>
+                                    <th scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -104,9 +105,10 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                                             <i class="bi bi-plus-circle-fill detail-product" data-id="<?=$value['id_mon']?>"></i>
                                             <i class="bi bi-gear-fill edit-product" data-id="<?=$value['id_mon']?>--<?=$value['ten_mon']?>--<?=$value['Loai']?>--<?=$value['gia']?>--<?=$value['Soluong']?>--<?=$value['Mota']?>--<?=$value['Hinhanh']?>" data-toggle="modal" data-target="#exampleModalScrollable"></i>
                                             <i class="bi bi-x-circle-fill delete-product" data-toggle="modal" data-target="#exampleModal" data-id="<?=$value['id_mon']?>"></i>
+                                            <i class="bi bi-arrow-repeat" data-toggle="modal" data-target="#exampleModalStatus" data-id="<?=$value['id_mon']?>"></i>
                                         </td>
+                                        <td class="status"><?=$value['trangthai']?></td>
                                     </tr>
-
                                     <tr class="hidden_modal" id="<?=$value['id_mon']?>">
                                         <td colspan="8">
                                             <div class="table_payment">
@@ -176,6 +178,28 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
             </div>
             
     </div>
+
+            <!-- Status  -->
+            <div class="modal fade" id="exampleModalStatus" tabindex="-1" role="dialog" aria-labelledby="exampleModalStatusLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalStatusLabel">Status Confirm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn Muốn Ẩn Sản Phẩm ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="status-confirm">Ẩn</button>
+            </div>
+            </div>
+        </div>
+        </div>       
+
         <!-- DELETE Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -262,6 +286,8 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
         </div>
         </div>
     <form method="POST" id="form_delete"></form>
+    <form method="POST" id="form_status"></form>
+
     <script>
             var type1 = document.getElementById("Type_Product");
             var type2 = document.getElementById("price");
@@ -300,6 +326,21 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                 var form_delete = document.getElementById('form_delete');
                 form_delete.action = `manage/deleteProduct/${productId}`;
                 form_delete.submit();
+            })
+        })
+        
+        //status
+        var productId;
+        $('#exampleModalStatus').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            productId = button.data('id');
+        })
+        var getEditRow = Array.from(document.querySelectorAll('#status-confirm'));
+        getEditRow.forEach(ele => {
+            ele.addEventListener('click', () => {
+                var form_status = document.getElementById('form_status');
+                form_status.action = `manage/checkProduct/${productId}`;
+                form_status.submit();
             })
         })
 

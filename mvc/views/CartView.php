@@ -32,7 +32,7 @@
                     <li><a href="./home">Home</a></li>
                     <li><a href="products">Products</a></li>
                     <li><a style="background-color: dodgerblue;" href="#"><img style="width:20px;padding:0px;" src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png"></a></li>
-                    <?php if($_SESSION['username'] = "admin") echo "<li><a href=\"manage/viewProductPage/1\">Admin</a></li><li><a href=\"login/logout\">Logout</a></li>";
+                    <?php if($_SESSION['username'] == "admin") echo "<li><a href=\"manage/viewProductPage/1\">Admin</a></li><li><a href=\"login/logout\">Logout</a></li>";
                     else echo "<li><a href=\"login/logout\">Logout</a></li>";?>
                 </ul>
             </nav>

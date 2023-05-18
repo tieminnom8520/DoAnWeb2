@@ -38,9 +38,8 @@
                     <li><a style="background-color:  #ffd452; color :black;" href="#">Trang Chủ</a></li>
                     <li><a href="products">Sản Phẩm</a></li>
                     <li><a href="cart"><img style="width:20px;padding:0px;" src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png"></a></li>
-                    
-                    <?php if($_SESSION['username'] == "admin") echo "<li><a href=\"manage/viewProductPage/1\">Admin</a></li><li><a href=\"login/logout\">Đăng Xuất</a></li>";
-                    else echo "<li><a href=\"login/logout\">Logout</a></li>";?>
+                    <?php if($_SESSION['username'] == "admin") echo "<li><a href=\"manage/viewProductPage/1\">Xin Chào <b>{$_SESSION['ten']}</b></a></li><li><a href=\"login/logout\">Đăng Xuất</a></li>";
+                    else echo "<li><a>Xin Chào <b>{$_SESSION['ten']}</b></a></li><li><a href=\"login/logout\">Logout</a></li>";?>
                 </ul>
             </nav>
         </div>

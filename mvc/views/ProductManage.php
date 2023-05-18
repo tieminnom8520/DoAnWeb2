@@ -228,12 +228,18 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="Price_ProductS">PriceS</label>
-                        <input type="text" class="form-control" id="Price_ProductS" name="Price_ProductS" required>
-                        <label for="Price_ProductM">PriceM</label>
-                        <input type="text" class="form-control" id="Price_ProductM" name="Price_ProductM" required>
-                        <label for="Price_ProductL">PriceL</label>
-                        <input type="text" class="form-control" id="Price_ProductL" name="Price_ProductL" required>
+                        <div id = "price">
+                            <label for="Price_ProductS">PriceS</label>
+                            <input type="text" class="form-control" id="Price_ProductS" name="Price_ProductS" required>
+                            <label for="Price_ProductM">PriceM</label>
+                            <input type="text" class="form-control" id="Price_ProductM" name="Price_ProductM" required>
+                            <label for="Price_ProductL">PriceL</label>
+                            <input type="text" class="form-control" id="Price_ProductL" name="Price_ProductL" required>
+                        </div>
+                        <div id = "priceN">
+                            <label for="Price_ProductN">PriceN</label>
+                            <input type="text" class="form-control" id="Price_ProductN" name="Price_ProductN" required>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="Quantity_Product">Quantity</label>
@@ -258,6 +264,20 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
         </div>
     <form method="POST" id="form_delete"></form>
     <script>
+            var type1 = document.getElementById("Type_Product");
+            var type2 = document.getElementById("price");
+            var type3 = document.getElementById("priceN");
+
+            type2.style.display = 'none';
+            type3.style.display = 'none';
+
+            type1.onchange = function(){
+            if (type1.value === 'Bánh') {
+                type2.style.display = 'none';
+                type3.style.display = 'block';
+            } else {type2.style.display = 'block'
+                    type3.style.display = 'none'}
+            }
         //show detail
     document.addEventListener('DOMContentLoaded', (event) => {
         var getRows = Array.from(document.querySelectorAll('.detail-product'));
@@ -296,8 +316,9 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                 var dataId = ele.getAttribute('data-id');
                 arr_value = dataId.split('--');
                 document.getElementById('Name_Product').value = arr_value[1];
-                document.getElementById('Type_Product').value = arr_value[2];
+                document.getElementById('Type_Product').value = "";
                 document.getElementById('Price_ProductL').value = arr_value[3];
+                document.getElementById('Price_ProductN').value = arr_value[3];
                 document.getElementById('Quantity_Product').value = arr_value[4];
                 document.getElementById('Detail_Product').value = arr_value[5];
                 document.getElementById('Rating_Product_value').value = arr_value[6];
@@ -315,8 +336,12 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
             var form_event = document.getElementById('form_event');
             if(arr_value) form_event.action = `manage/editProduct/${arr_value[0]}`;
             else form_event.action = `manage/editProduct/-1`
-            if(document.getElementById('Name_Product').value&&document.getElementById('Type_Product')&&document.getElementById('Price_ProductS').value&&document.getElementById('Price_ProductM').value&&document.getElementById('Price_ProductL').value&&document.getElementById('Quantity_Product').value&&document.getElementById('Detail_Product').value&&document.getElementById('Rating_Product').value)
-                form_event.submit();
+            if(document.getElementById('Type_Product').value != 'Bánh'){
+            if(document.getElementById('Name_Product').value&&document.getElementById('Type_Product')&&document.getElementById('Price_ProductS').value&&document.getElementById('Price_ProductM').value&&document.getElementById('Price_ProductL').value&&document.getElementById('Quantity_Product').value&&document.getElementById('Detail_Product').value&&document.getElementById('Rating_Product').value);
+            }
+            else{if(document.getElementById('Name_Product').value&&document.getElementById('Type_Product')&&document.getElementById('Price_ProductN').value&&document.getElementById('Quantity_Product').value&&document.getElementById('Detail_Product').value&&document.getElementById('Rating_Product').value);
+            }
+            form_event.submit();
         })
         
 

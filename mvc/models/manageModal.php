@@ -10,7 +10,7 @@ class manageModal extends db{
         $query1 = $this->_query($typesql);
         return $query1;
     }
-    public function editProductManage($id,$name,$type,$priceS,$priceM,$priceL,$quantity,$detail,$rating){
+    public function editProductManage($id,$name,$type,$priceS,$priceM,$priceL,$priceN,$quantity,$detail,$rating){
         if($id != -1){
         $typesql1 = "UPDATE mon
                     SET ten_mon='".$name."', Loai='".$type."', Soluong=".$quantity.", Mota='".$detail."', hinhanh='".$rating."'
@@ -22,8 +22,9 @@ class manageModal extends db{
                     WHEN 'S' THEN '".$priceS."'
                     WHEN 'M' THEN '".$priceM."'
                     WHEN 'L' THEN '".$priceL."'
+                    WHEN 'N' THEN '".$priceN."'
                     END
-                    WHERE id_mon = '".$id."' AND id_size IN ('S', 'M', 'L');";
+                    WHERE id_mon = '".$id."' AND id_size IN ('S', 'M', 'L', 'N');";
         $query1 = $this->_query($typesql2);
         }else{
             $typesql1 = "insert into mon (ten_mon, Loai, trangthai, Soluong, Mota, hinhanh)
@@ -92,7 +93,7 @@ class manageModal extends db{
             $skipnext = 5;
         }
         
-        $typesql = "SELECT * FROM order_product LIMIT ".$skip.", ".$skipnext.";";
+        $typesql = "SELECT * FROM ct_don_dat LIMIT ".$skip.", ".$skipnext.";";
         $query1 = $this->_query($typesql);
         if(!$query1) return [];
         $types = [];
@@ -102,7 +103,7 @@ class manageModal extends db{
         return $types;
     }
     public function deleteOrderManage($id){
-        $typesql = "DELETE FROM order_product WHERE order_id=" . $id . ";";
+        $typesql = "DELETE FROM ct_don_dat WHERE order_id=" . $id . ";";
         $query1 = $this->_query($typesql);
         return $query1;
     }

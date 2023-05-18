@@ -21,15 +21,15 @@ class manage extends controller{
         $priceS = $_POST['Price_ProductS'] ;
         $priceM = $_POST['Price_ProductM'] ;
         $priceL = $_POST['Price_ProductL'] ;
+        $priceN = $_POST['Price_ProductN'] ;
         $quantity = $_POST['Quantity_Product'];
         $detail = $_POST['Detail_Product'];
         $rating = $_POST['Rating_Product'];
         
     // Kiểm tra xem có đủ giá trị hay không
 
-        $demoData = $this->model('manageModal')->editProductManage($id,$name,$type,$priceS,$priceM,$priceL,$quantity,$detail,$rating);
+        $demoData = $this->model('manageModal')->editProductManage($id,$name,$type,$priceS,$priceM,$priceL,$priceN,$quantity,$detail,$rating);
         header("Location: " . geturl(). "/manage/viewProductPage/1");
-    
 }
     public function viewUserPage($page){
         if($page < 1) $page = 1;

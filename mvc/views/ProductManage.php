@@ -15,8 +15,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/app.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -30,13 +29,13 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2a2928;">
+    <nav class="navbar navbar-expand-lg navbar-dark" >
         <div class="container">
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto fontSize">
                 <li class="nav-item active mr-4 selectedMenu">
-                        <a class="nav-link" href="./home">Quay Về Trang Chủ<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="./home">Quay Về Trang Chủ</a>
                     </li>
                 </ul>
                 <ul><img src="./mvc/image/brand_logo.png" width="200px"></ul>
@@ -182,7 +181,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Confirm</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -191,8 +190,8 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                 Bạn có chắc chắn muốn xóa không?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="delete-confirm">Delete</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-danger" id="delete-confirm">Xóa</button>
             </div>
             </div>
         </div>
@@ -203,7 +202,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">User Modal</h5>
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Chỉnh sửa sản phẩm</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -211,13 +210,13 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
             <div class="modal-body">
                 <form id="form_event" method="POST" class="was-validated">
                     <div class="form-group">
-                        <label for="Name_Product">Name</label>
+                        <label for="Name_Product">Tên</label>
                         <input type="text" class="form-control" id="Name_Product" name="Name_Product" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group">
-                        <label for="Type_Product">Type</label>
+                        <label for="Type_Product">Loại</label>
                         <select class="form-control" id="Type_Product" name="Type_Product" required>
                             <option value="" disabled selected hidden>-- Chọn loại sản phẩm --</option>
                             <option value="Cà Phê">Cà Phê</option>
@@ -242,22 +241,22 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="Quantity_Product">Quantity</label>
+                        <label for="Quantity_Product">Số lượng</label>
                         <input type="text" class="form-control" id="Quantity_Product" name="Quantity_Product" required>
                     </div>
                     <div class="form-group">
-                        <label for="Detail_Product">Detail</label>
+                        <label for="Detail_Product">Mô tả</label>
                         <input type="text" class="form-control" id="Detail_Product" name="Detail_Product" required>
                     </div>
                     <div class="form-group">
-                     <label for="Rating_Product">Image</label>
+                     <label for="Rating_Product">Hình ảnh</label>
                      <input type="file" class="form-control-file" id="Rating_Product" name="Rating_Product" accept="image/png"  required>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="button_form_event">Save changes</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="button_form_event">Lưu</button>
             </div>
             </div>
         </div>

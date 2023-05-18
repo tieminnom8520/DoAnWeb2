@@ -15,8 +15,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/app.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -30,13 +29,13 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2a2928;">
+    <nav class="navbar navbar-expand-lg navbar-dark" >
         <div class="container">
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto fontSize">
                 <li class="nav-item active mr-4 selectedMenu">
-                        <a class="nav-link" href="./home">Quay Về Trang Chủ<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="./home">Quay Về Trang Chủ</a>
                     </li>
                 </ul>
                 <ul><img src="./mvc/image/brand_logo.png" width="200px"></ul>
@@ -112,7 +111,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                                     <tr class="hidden_modal" id="<?=$value['id_taikhoan']?>">
                                         <td colspan="6">
                                             <div class="table_payment">
-                                                <div class="table_payment_title">Description</div>
+                                                <div class="table_payment_title">Mô tả</div>
                                             </div>
                                             <div class="table_payment_detail">
                                                 <p><?=$value['Mota']?></p>
@@ -125,19 +124,19 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                         </table>
                         <div class="show_quantity">
                             <div class="show_quantity_item">
-                                <button type="button" class="btn btn-warning" data-toggle="modal" id="button_add" data-target="#exampleModalScrollable">ADD USER</button>
+                                <button type="button" class="btn btn-warning" data-toggle="modal" id="button_add" data-target="#exampleModalScrollable">Thêm tài khoản</button>
                             </div>
                             <div class="show_quantity_page">
                                 <nav aria-label="...">
                                     <ul class="pagination">
                                       <li class="page-item ">
-                                        <a class="page-link" href="manage/viewUserPage/<?=$page - 1?>" tabindex="-1">Prev</a>
+                                        <a class="page-link" href="manage/viewUserPage/<?=$page - 1?>" tabindex="-1">Trước</a>
                                       </li>
                                       <li class="page-item active">
                                         <a class="page-link" href="manage/viewUserPage/<?=$page?>"><?=$page?></a>
                                       </li>
                                       <li class="page-item">
-                                        <a class="page-link" href="manage/viewUserPage/<?=$page + 1?>">Next</a>
+                                        <a class="page-link" href="manage/viewUserPage/<?=$page + 1?>">Sau</a>
                                       </li>
                                     </ul>
                                   </nav>
@@ -176,7 +175,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Confirm</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -185,8 +184,8 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                 Bạn có chắc chắn muốn xóa không?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="delete-confirm">Delete</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-danger" id="delete-confirm">Xóa</button>
             </div>
             </div>
         </div>
@@ -197,7 +196,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">Edit Modal</h5>
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Chỉnh sửa</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -237,8 +236,8 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="button_form_event">Save changes</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="button_form_event">Lưu</button>
             </div>
             </div>
         </div>

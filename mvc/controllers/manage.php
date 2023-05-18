@@ -18,14 +18,19 @@ class manage extends controller{
     public function editProduct($id){
         $name = $_POST['Name_Product'];
         $type = $_POST['Type_Product'];
-        $price = $_POST['Price_Product'];
+        $priceS = $_POST['Price_ProductS'] ;
+        $priceM = $_POST['Price_ProductM'] ;
+        $priceL = $_POST['Price_ProductL'] ;
         $quantity = $_POST['Quantity_Product'];
         $detail = $_POST['Detail_Product'];
         $rating = $_POST['Rating_Product'];
         
-        $demoData = $this->model('manageModal')->editProductManage($id,$name,$type,$price,$quantity,$detail,$rating);
+    // Kiểm tra xem có đủ giá trị hay không
+
+        $demoData = $this->model('manageModal')->editProductManage($id,$name,$type,$priceS,$priceM,$priceL,$quantity,$detail,$rating);
         header("Location: " . geturl(). "/manage/viewProductPage/1");
-    }
+    
+}
     public function viewUserPage($page){
         if($page < 1) $page = 1;
         $Data = $this->model('manageModal')->getProductUserPaging($page);

@@ -10,26 +10,36 @@ class manageModal extends db{
         $query1 = $this->_query($typesql);
         return $query1;
     }
-    public function editProductManage($id,$name,$type,$price,$quantity,$detail,$rating){
+    public function editProductManage($id,$name,$type,$priceS,$priceM,$priceL,$quantity,$detail,$rating){
         if($id != -1){
-            $typesql1 = "UPDATE mon
-                        SET ten_mon='".$name."', Loai='".$type."',trangthai=".$price.", Soluong=".$quantity.", Mota='".$detail."', hinhanh='".$rating."'
-                        WHERE id_mon=".$id.";";
-            $query1 = $this->_query($typesql1);
+        $typesql1 = "UPDATE mon
+                    SET ten_mon='".$name."', Loai='".$type."', Soluong=".$quantity.", Mota='".$detail."', hinhanh='".$rating."'
+                    WHERE id_mon=".$id.";";
+        $query1 = $this->_query($typesql1);
+
+        $typesql2 = "UPDATE ct_mon_size 
+                    SET gia = CASE id_size
+                    WHEN 'S' THEN '".$priceS."'
+                    WHEN 'M' THEN '".$priceM."'
+                    WHEN 'L' THEN '".$priceL."'
+                    END
+                    WHERE id_mon = '".$id."' AND id_size IN ('S', 'M', 'L');";
+        $query1 = $this->_query($typesql2);
         }else{
             $typesql1 = "insert into mon (ten_mon, Loai, trangthai, Soluong, Mota, hinhanh)
-            values ('".$name."', '".$type."', ".$price.", ".$quantity.", '".$detail."', '".$rating."');";
+            values ('".$name."', '".$type."', ".$priceS.", ".$quantity.", '".$detail."', '".$rating."');";
             $query1 = $this->_query($typesql1);
         }
         return $id;
     }
     public function getProductManagePaging($page){
-        $skip = (intval($page) - 1) * 10;
+        $skip = (intval($page) - 1) * 5;
         if(intval($page) - 1 == 0){
             $skip = 0;
         }
         
-        $typesql = "SELECT * FROM mon LIMIT ".$skip.", 10;";
+        $typesql = "SELECT * FROM mon join ct_mon_size as ct_m_s ON mon.id_mon = ct_m_s.id_mon 
+        GROUP BY mon.id_mon LIMIT ".$skip.", 5;";
         $query1 = $this->_query($typesql);
         if(!$query1) return [];
         $types = [];

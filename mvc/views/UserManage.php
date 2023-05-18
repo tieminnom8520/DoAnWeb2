@@ -228,7 +228,11 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                     </div>
                     <div class="form-group">
                         <label for="Avatar_User">Chức Vụ</label>
-                        <input type="text" class="form-control" id="Avatar_User" name="Avatar_User" required>
+                        <select class="form-control" id="Avatar_User" name="Avatar_User" required>
+                        <option value="" disabled selected hidden>-- Chọn --</option>
+                            <option value="Admin">Admin</option>
+                            <option value="User">User</option>
+                        </select>
                     </div>
                 </form>
             </div>

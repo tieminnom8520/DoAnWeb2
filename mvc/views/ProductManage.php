@@ -98,12 +98,12 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                                         <th scope="row"><?=$value['id_mon']?></th> 
                                         <td class="Name_Product_value"><?php echo substr($value['ten_mon'],0,50)?></td>
                                         <td class="Type_Product_value"><?=$value['Loai']?></td>
-                                        <td class="Price_Product_value"><?=$value['trangthai']?></td>
+                                        <td class="Price_Product_value"><?=$value['gia']?></td>
                                         <td class="Quantity_Product_value"><?=$value['Soluong']?></td>
                                         <td class="Rating_Product_value"><?=$value['Hinhanh']?><a href="products/productdetail/<?=$value["id_mon"]?>">Link</a></td>
                                         <td>
                                             <i class="bi bi-plus-circle-fill detail-product" data-id="<?=$value['id_mon']?>"></i>
-                                            <i class="bi bi-gear-fill edit-product" data-id="<?=$value['id_mon']?>--<?=$value['ten_mon']?>--<?=$value['Loai']?>--<?=$value['trangthai']?>--<?=$value['Soluong']?>--<?=$value['Mota']?>--<?=$value['Hinhanh']?>" data-toggle="modal" data-target="#exampleModalScrollable"></i>
+                                            <i class="bi bi-gear-fill edit-product" data-id="<?=$value['id_mon']?>--<?=$value['ten_mon']?>--<?=$value['Loai']?>--<?=$value['gia']?>--<?=$value['Soluong']?>--<?=$value['Mota']?>--<?=$value['Hinhanh']?>" data-toggle="modal" data-target="#exampleModalScrollable"></i>
                                             <i class="bi bi-x-circle-fill delete-product" data-toggle="modal" data-target="#exampleModal" data-id="<?=$value['id_mon']?>"></i>
                                         </td>
                                     </tr>
@@ -218,7 +218,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                     </div>
                     <div class="form-group">
                         <label for="Type_Product">Type</label>
-                        <select class="form-control" id="Type_Product" name="Type_Product" placeholder="-- Chọn loại sản phẩm --" required>
+                        <select class="form-control" id="Type_Product" name="Type_Product" required>
                             <option value="" disabled selected hidden>-- Chọn loại sản phẩm --</option>
                             <option value="Cà Phê">Cà Phê</option>
                             <option value="Phindi">Phindi</option>
@@ -228,8 +228,12 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="Price_Product">Price</label>
-                        <input type="text" class="form-control" id="Price_Product" name="Price_Product" required>
+                        <label for="Price_ProductS">PriceS</label>
+                        <input type="text" class="form-control" id="Price_ProductS" name="Price_ProductS" required>
+                        <label for="Price_ProductM">PriceM</label>
+                        <input type="text" class="form-control" id="Price_ProductM" name="Price_ProductM" required>
+                        <label for="Price_ProductL">PriceL</label>
+                        <input type="text" class="form-control" id="Price_ProductL" name="Price_ProductL" required>
                     </div>
                     <div class="form-group">
                         <label for="Quantity_Product">Quantity</label>
@@ -241,7 +245,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                     </div>
                     <div class="form-group">
                      <label for="Rating_Product">Image</label>
-                     <input type="file" class="form-control-file" id="Rating_Product" name="Rating_Product" accept="image/png" required>
+                     <input type="file" class="form-control-file" id="Rating_Product" name="Rating_Product" accept="image/png"  required>
                     </div>
                 </form>
             </div>
@@ -293,11 +297,10 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
                 arr_value = dataId.split('--');
                 document.getElementById('Name_Product').value = arr_value[1];
                 document.getElementById('Type_Product').value = arr_value[2];
-                document.getElementById('Price_Product').value = arr_value[3];
+                document.getElementById('Price_ProductL').value = arr_value[3];
                 document.getElementById('Quantity_Product').value = arr_value[4];
                 document.getElementById('Detail_Product').value = arr_value[5];
-                document.getElementById('Rating_Product').value = arr_value[6];
-
+                document.getElementById('Rating_Product_value').value = arr_value[6];
             })
         })
         document.getElementById('button_add').addEventListener('click',()=>{
@@ -312,7 +315,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] = "admin"){
             var form_event = document.getElementById('form_event');
             if(arr_value) form_event.action = `manage/editProduct/${arr_value[0]}`;
             else form_event.action = `manage/editProduct/-1`
-            if(document.getElementById('Name_Product').value&&document.getElementById('Type_Product')&&document.getElementById('Price_Product').value&&document.getElementById('Quantity_Product').value&&document.getElementById('Detail_Product').value&&document.getElementById('Rating_Product').value)
+            if(document.getElementById('Name_Product').value&&document.getElementById('Type_Product')&&document.getElementById('Price_ProductS').value&&document.getElementById('Price_ProductM').value&&document.getElementById('Price_ProductL').value&&document.getElementById('Quantity_Product').value&&document.getElementById('Detail_Product').value&&document.getElementById('Rating_Product').value)
                 form_event.submit();
         })
         

@@ -51,5 +51,19 @@
             AND (ct_m_s.id_size = 'S' OR ct_m_s.id_size = 'N')";
             return mysqli_query($this->connect, $qr);
         }
+
+        public function getSpecialProduct(){
+            $qr = "SELECT m.*, ct_m_s.gia
+            FROM MON as m join ct_mon_size as ct_m_s on m.id_mon = ct_m_s.id_mon
+            WHERE (ct_m_s.id_size = 'L' OR ct_m_s.id_size = 'N') AND ct_m_s.gia 
+            IN (
+                SELECT  max(ct_m_s.gia)
+                FROM MON as m join ct_mon_size as ct_m_s on m.id_mon = ct_m_s.id_mon
+                WHERE (ct_m_s.id_size = 'L' OR ct_m_s.id_size = 'N')
+                GROUP BY m.Loai
+            )
+            LIMIT 12;";
+             return mysqli_query($this->connect, $qr);
+        }
     }
 ?>

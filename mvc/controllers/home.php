@@ -6,6 +6,7 @@
                 "all-pro"=>$productDB->getAllProducts(),
                 "all-type"=>$productDB->getAllCategories(),
                 "pro-db"=>$productDB,
+                "all-special"=>$productDB->getSpecialProduct()
             ]);
         }
     }

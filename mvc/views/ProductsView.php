@@ -32,8 +32,10 @@
             <a href="./home"><img src="./mvc/image/brand_logo.png" alt="#" id="brand_logo"></a>
         </div>
         <div class="search-box">
-                    <input id="search-form" type="text" placeholder="Trà thạch vải..." onchange="changeUrl()">
+                    <input id="search-form" type="text" placeholder="Trà thạch vải..." onchange="changeUrl()" onkeyup="searchTest();">
                     <a id="search-btn" href="#"><i class="fas fa-search fa-2x" ></i></a>
+                    <div id='search-test'>
+                    </div>
         </div>
         <div>
             <nav class="menu">
@@ -91,7 +93,9 @@
             </div>
             <div class="product-list">
                 <?php 
+                    $phpArray = array();
                     while ($row = mysqli_fetch_assoc($data["all-pro"])){
+                        $phpArray[] = $row;
                         echo '<div class="product">
                                 <a href="products/productdetail/'.$row["id_mon"].'"><div class="product-img"><img src="./mvc/image/'.$row["Hinhanh"].'" alt="#"></div></a>
                                 <div class="product-price">'.$row["gia"].'₫</div>
@@ -99,6 +103,7 @@
                                 <a href="products/productdetail/'.$row["id_mon"].'"><div class="product-ct">Click để xem chi tiết</div></a>
                             </div>';
                     };
+                    $jsonArray = json_encode($phpArray);
                 ?>
             </div>
         </div>
@@ -134,10 +139,30 @@
 
 </body>
 <script src="./assets/js/javascript.js"></script>
+
 <script>
+    var my_arr = <?php echo $jsonArray; ?>;
     function changeUrl(){
         var searchValue = document.getElementById("search-form").value;
         document.getElementById("search-btn").href = "products/search/"+searchValue;
+    }
+    function searchTest(){
+        document.getElementById("search-test").innerHTML = "";
+        let searchValue = document.getElementById("search-form").value.toLowerCase().trim();
+        if(searchValue == "") {
+            return ;
+        }
+        for(let i = 0; i < my_arr.length ; i++){
+            if(my_arr[i]["ten_mon"].toLowerCase().search(searchValue)!=-1){
+                document.getElementById("search-test").innerHTML += 
+                "<a href = 'products/productdetail/"+my_arr[i]["id_mon"]+"' style='text-decoration:none;'>"+
+                    "<div class='search-object'>"
+                        +"<img src='./mvc/image/"+ my_arr[i]["Hinhanh"]+"'>"
+                        +"<div class='product-name-2'><h2>"+my_arr[i]["ten_mon"]+"</h2></div>"
+                    "</div>"
+                +"</a>";
+            }
+        }
     }
 </script>
 </html>

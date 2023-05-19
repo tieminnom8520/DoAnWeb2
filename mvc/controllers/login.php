@@ -15,6 +15,7 @@
             </script>";
             else {
                 $_SESSION['username'] = $demoData[0]['chucvu'];
+                $_SESSION['ten'] = $demoData[0]['ten'];
                 header("Location: " . geturl(). "/home");
             }
         }
@@ -33,6 +34,7 @@
         }
         public function logout(){
             unset($_SESSION['username']);
+            unset($_SESSION['ten']);
             header("Location: " . geturl(). "/login/loginView");
         }
 

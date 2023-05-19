@@ -10,6 +10,17 @@ class manageModal extends db{
         $query1 = $this->_query($typesql);
         return $query1;
     }
+
+    public function checkProductManage($id){
+        $typesql = "UPDATE mon 
+                    SET trangthai= CASE
+                    WHEN trangthai = '1' THEN '0'
+                    WHEN trangthai = '0' THEN '1'
+                    END
+                    WHERE id_mon = ".$id.";";
+        $query1 = $this->_query($typesql);
+        return $id;
+    }
     public function editProductManage($id,$name,$type,$priceS,$priceM,$priceL,$priceN,$quantity,$detail,$rating){
         if($id != -1){
         $typesql1 = "UPDATE mon

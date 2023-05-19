@@ -15,6 +15,11 @@ class manage extends controller{
         $demoData = $this->model('manageModal')->deleteProductManage($id);
         header("Location: " . geturl(). "/manage/viewProductPage/1");
     }
+
+    public function checkProduct($id){
+        $demoData = $this->model('manageModal')->checkProductManage($id);
+        header("Location: " . geturl(). "/manage/viewProductPage/1");
+    }
     public function editProduct($id){
         $name = $_POST['Name_Product'];
         $type = $_POST['Type_Product'];

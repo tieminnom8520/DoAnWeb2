@@ -11,15 +11,15 @@
             $orderIdList = array();
             $orderStatusList = array();
 
-            foreach ($cartDB->getAllOrders($user_id) as $order){
-                if($order["id_mon"] and $order["order_in_cart"] == 1) {
-                    $product = mysqli_fetch_array($productDB->getProduct($order["id_mon"]));
-                    array_push($orderList, $product);
-                    array_push($quantityList, $order["quantity"]);
-                    array_push($orderIdList, $order["order_id"]);
-                    array_push($orderStatusList, $order["order_status"]);
-                }
-            }
+            // foreach ($cartDB->getAllOrders($user_id) as $order){
+            //     if($order["id_mon"] and $order["order_in_cart"] == 1) {
+            //         $product = mysqli_fetch_array($productDB->getProduct($order["id_mon"]));
+            //         array_push($orderList, $product);
+            //         array_push($quantityList, $order["quantity"]);
+            //         array_push($orderIdList, $order["order_id"]);
+            //         array_push($orderStatusList, $order["order_status"]);
+            //     }
+            // }
 
             $this->view("CartView", [
                 "all-order"=>$orderList,

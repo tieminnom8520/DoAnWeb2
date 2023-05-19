@@ -16,6 +16,7 @@
             else {
                 $_SESSION['username'] = $demoData[0]['chucvu'];
                 $_SESSION['ten'] = $demoData[0]['ten'];
+                $_SESSION['id_kh'] = $demoData[0]['id_taikhoan'];
                 header("Location: " . geturl(). "/home");
             }
         }
@@ -35,6 +36,7 @@
         public function logout(){
             unset($_SESSION['username']);
             unset($_SESSION['ten']);
+            unset($_SESSION['id_kh']);
             header("Location: " . geturl(). "/login/loginView");
         }
 

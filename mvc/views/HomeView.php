@@ -4,6 +4,9 @@
     if (!$_SESSION['username']){
         header("Location: " . geturl(). "/login/loginView");
     }
+    if (!isset($_SESSION['cart'])){
+        $_SESSION['cart'] = array();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

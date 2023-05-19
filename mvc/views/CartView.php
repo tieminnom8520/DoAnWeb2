@@ -15,6 +15,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         <?php include "./assets/css/cart.css" ?>
         <?php include "./assets/css/detail.css" ?>
@@ -90,9 +91,12 @@
                     </div>
                 </div>
                 <div class="total">
-                    Tổng tiền : <span  style="color : #ff4d52; font-size : 20px;">
+                    <h4>Thành tiền :</h4> <span  style="color : #ff4d52; font-size : 20px;">
                                     <?= (int)($session_cart[2])*(int)($order["gia"]) ?>₫
                     </span>
+                    <div>
+                        <button class="btn btn-dark" onclick="xoaGioHang(<?php echo json_encode($order_no-1); ?>);" >x</button>
+                    </div>
 
                 </div>
             </div>
@@ -117,31 +121,31 @@
                 <form id="form_event" method="POST" class="was-validated">
                     <div class="form-group">
                         <label for="Name_Product">Tên</label>
-                        <input type="text" class="form-control" id="Name_Product" name="ten_thanhtoan" required>
+                        <input type="text" class="form-control" id="ten_tt" name="ten_thanhtoan" required>
                     </div>
                     <div class="form-group">
                         <label for="Quantity_Product">Địa chỉ</label>
-                        <input type="text" class="form-control" id="Quantity_Product" name="diachi_thanhtoan" required>
+                        <input type="text" class="form-control" id="diachi_tt" name="diachi_thanhtoan" required>
                     </div>
                     <div class="form-group">
                         <label for="Quantity_Product">Số điện thoại</label>
-                        <input type="text" class="form-control" id="Quantity_Product" name="sodienthoai_thanhtoan" required>
+                        <input type="text" class="form-control" id="sdt_tt" name="sodienthoai_thanhtoan" required>
                     </div>
                     <div class="form-group">
                         <label for="Detail_Product">Ghi chú</label>
-                        <input type="text" class="form-control" id="Detail_Product" name="ghichu_thanhtoan" required>
+                        <input type="text" class="form-control" id="ghichu_tt" name="ghichu_thanhtoan" required>
                     </div>
                     <div></div>
                     <div class="form-group">
                         <label for="Detail_Product">Tổng tiền:</label>
-                        <label id="tongtien" name="tongtien_thanhtoan"><?= $tongtien ?>₫ </label>
+                        <label id="tongtien" name="tongtien_thanhtoan" style="color:red;"><?= $tongtien ?>₫ </label>
                     </div>
                     
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-warning" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary" id="cart-confirm" >Thanh toán</button>
+                <button type="button" class="btn btn-primary" id="cart-confirm"  >Thanh toán</button>
             </div>
             </div>
         </div>
@@ -173,7 +177,13 @@
     
 </body>
 <script src="./assets/js/javascript.js"></script>
+<script src="jquery-3.6.4.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        function xoaGioHang(value){
+            console.log(value); 
+        }
+    </script>
 </html>

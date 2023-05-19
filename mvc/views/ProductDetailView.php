@@ -119,7 +119,7 @@
                         </div>
 
                         <div id="add-to-cart-btn">
-                            <button type="submit" >Thêm Vào Giỏ Hàng</button>
+                            <button>Thêm Vào Giỏ Hàng</button>
                         </div>
                     </form>
                 </div>

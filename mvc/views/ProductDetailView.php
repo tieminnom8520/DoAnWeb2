@@ -24,7 +24,7 @@
             var curQuantity = Number(document.getElementById("buy-quantity").value);
             var productCost = document.getElementById("cost").innerHTML;
             productCost = Number(productCost.substring(0, productCost.length-1));
-            document.getElementById("total-cost").innerHTML = productCost*curQuantity + "$";
+            document.getElementById("total-cost").innerHTML = productCost*curQuantity + "₫";
         }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,7 +94,7 @@
             <div class="order-form">
                 <div class="name">Đặt Hàng</div>
                 <div>
-                    <form id="order-form" method="POST" action="payment/addToCart">
+                    <form id="order-form" method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
                         <div class="order-infor" style="display: none;">
                             <input type="text" name="user_taikhoan" value="<?php echo $_SESSION['username']?>">
                         </div>
@@ -105,21 +105,21 @@
                             <label>Số Lượng:</label><input name="quantity" type="number" id="buy-quantity" min="1" max="<?php echo $data["pro"]["Soluong"] ?>" value="1" onchange="getTotalCost()">
                         </div>
                             
-                        <div class="order-infor">
+                        <!-- <div class="order-infor">
                             <label>Địa Chỉ Giao Hàng:</label>
                             <select id="country" name="country">
                                 <option value="Afganistan">Afghanistan</option>
                                 <option value="Argentina">Argentina</option>
                                 <option value="Armenia">Armenia</option>
                             </select>
-                        </div>
+                        </div> -->
 
                         <div class="order-infor">
                             <label>Tổng Cộng :</label><label id="total-cost"><?php echo $data["pro"]["gia"] ?>₫</label>
                         </div>
 
                         <div id="add-to-cart-btn">
-                            <button type="submit">Thêm Vào Giỏ Hàng</button>
+                            <button type="submit" >Thêm Vào Giỏ Hàng</button>
                         </div>
                     </form>
                 </div>
@@ -134,7 +134,7 @@
                 <?php 
                     while ($row = mysqli_fetch_assoc($data["related-pro"])){
                         echo '<div class="product">
-                                <a href="products/productdetail/'.$row["id_mon"].'">
+                                <a href="products/productdetail/'.$row["id_mon"].'/S">
                                     <div class="img">
                                         <div>
                                             <img src="./mvc/image/'.$row["Hinhanh"].'" alt="#">
@@ -179,5 +179,36 @@
     </div>
 
 </body>
-
+<?php 
+    if($_POST['quantity']){
+        $_SESSION['quantity'] = $_POST['quantity'];
+        if(!isset($_SESSION['cart'])){
+            $_SESSION['cart'] = array();
+        }else{
+            $currentUrl = $_SERVER['REQUEST_URI'];
+            $urlParts = explode('/', $currentUrl);
+            $lastPart = end($urlParts);
+            $found = 0;
+            for($i = 0; $i < count($_SESSION['cart']); $i++){
+                if($_SESSION['cart'][$i][0] == $data["pro"]["id_mon"] && $_SESSION['cart'][$i][1] ==$lastPart){
+                    $found = 0;
+                    $new_quantity = (string)((int)$_SESSION['quantity'] + (int)$_SESSION['cart'][$i][2]);
+                    $_SESSION['cart'][$i]= array($data["pro"]["id_mon"],$lastPart,$new_quantity);
+                    $found = 1;
+                }
+            }
+            if($found == 0){
+                $cart_item = array($data["pro"]["id_mon"],$lastPart,$_SESSION['quantity']);
+                $_SESSION['cart'][] = $cart_item;
+            }
+            // echo "<script> alert(".$found."); </script>";
+            // $cart_item2 = json_encode($cart_item);
+            // echo "<script> console.log(".$cart_item2."); </script>";
+            $session_cart = json_encode($_SESSION['cart']);
+            echo "<script> console.log(".$session_cart."); </script>";
+            
+        }
+        unset($_SESSION['quantity']);
+    }
+?>
 </html>

@@ -97,10 +97,10 @@
                     while ($row = mysqli_fetch_assoc($data["all-pro"])){
                         $phpArray[] = $row;
                         echo '<div class="product">
-                                <a href="products/productdetail/'.$row["id_mon"].'"><div class="product-img"><img src="./mvc/image/'.$row["Hinhanh"].'" alt="#"></div></a>
+                                <a href="products/productdetail/'.$row["id_mon"].'/S"><div class="product-img"><img src="./mvc/image/'.$row["Hinhanh"].'" alt="#"></div></a>
                                 <div class="product-price">'.$row["gia"].'₫</div>
                                 <div class="product-name">'.$row["ten_mon"].'</div>
-                                <a href="products/productdetail/'.$row["id_mon"].'"><div class="product-ct">Click để xem chi tiết</div></a>
+                                <a href="products/productdetail/'.$row["id_mon"].'/S"><div class="product-ct">Click để xem chi tiết</div></a>
                             </div>';
                     };
                     $jsonArray = json_encode($phpArray);
@@ -155,7 +155,7 @@
         for(let i = 0; i < my_arr.length ; i++){
             if(my_arr[i]["ten_mon"].toLowerCase().search(searchValue)!=-1){
                 document.getElementById("search-test").innerHTML += 
-                "<a href = 'products/productdetail/"+my_arr[i]["id_mon"]+"' style='text-decoration:none;'>"+
+                "<a href = 'products/productdetail/"+my_arr[i]["id_mon"]+"/S' style='text-decoration:none;'>"+
                     "<div class='search-object'>"
                         +"<img src='./mvc/image/"+ my_arr[i]["Hinhanh"]+"'>"
                         +"<div class='product-name-2'><h2>"+my_arr[i]["ten_mon"]+"</h2></div>"

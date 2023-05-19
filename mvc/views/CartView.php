@@ -5,6 +5,14 @@
         header("Location: " . geturl(). "/login/loginView");
     }
 ?>
+<?php 
+        $currentUrl = $_SERVER['REQUEST_URI'];
+        $urlParts = explode('/', $currentUrl);
+        $lastPart = end($urlParts);
+        if((int)$lastPath>-1){
+            unset($_SESSION['cart'][(int)$lastPart]);
+        }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +23,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         <?php include "./assets/css/cart.css" ?>
         <?php include "./assets/css/detail.css" ?>
@@ -25,14 +32,14 @@
 <body>
     <div class="header">
         <div class="logo">
-            <a href="./home"><img src="https://lh3.googleusercontent.com/d/1Rc3H-oqkp8BIRXpcL_EOUMlBeNf5CSll" alt="#"></a>
+            <a href="./home"><img src="./mvc/image/brand_logo.png" width="200px" alt="#"></a>
         </div>
         <div>
             <nav class="menu">
                 <ul>
                     <li><a href="./home">Home</a></li>
                     <li><a href="products">Products</a></li>
-                    <li><a style="background-color: dodgerblue;" href="#"><img style="width:20px;padding:0px;" src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png"></a></li>
+                    <li><a style="background-color: #ffd452;" href="#"><img style="width:20px;padding:0px;" src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png"></a></li>
                     <?php if($_SESSION['username'] == "admin") echo "<li><a href=\"manage/viewProductPage/1\">Admin</a></li><li><a href=\"login/logout\">Logout</a></li>";
                     else echo "<li><a href=\"login/logout\">Logout</a></li>";?>
                 </ul>
@@ -95,7 +102,7 @@
                                     <?= (int)($session_cart[2])*(int)($order["gia"]) ?>₫
                     </span>
                     <div>
-                        <button class="btn btn-dark" onclick="xoaGioHang(<?php echo json_encode($order_no-1); ?>);" >x</button>
+                        <button class="btn btn-dark" onclick="location.href='/DoAnWeb2/cart/<?php echo $order_no-1 ?>'">x</button>
                     </div>
 
                 </div>
@@ -138,7 +145,7 @@
                     <div></div>
                     <div class="form-group">
                         <label for="Detail_Product">Tổng tiền:</label>
-                        <input type="text" id="tongtien" name="tongtien_thanhtoan" value="<?=$tongtien?>"><?= $tongtien ?>₫
+                        <input type="text" id="tongtien" name="tongtien_thanhtoan" value="<?=$tongtien?>" readonly style="background-color:  rgb(112, 119, 141); border : none; max-width: 100px;">₫
                     </div>
             </div>
             <div class="modal-footer">
@@ -178,12 +185,8 @@
 </body>
 <script src="./assets/js/javascript.js"></script>
 <script src="jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script>
-        function xoaGioHang(value){
-            console.log(value); 
-        }
-    </script>
 </html>

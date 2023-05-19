@@ -102,7 +102,7 @@ class manageModal extends db{
             $skip = 0;
         }
         
-        $typesql = "SELECT * FROM don_dat_hang LIMIT ".$skip.", 5;";
+        $typesql = "SELECT * FROM don_dat_hang Where trangthai = '0' LIMIT ".$skip.", 5;";
         $query1 = $this->_query($typesql);
         if(!$query1) return [];
         $types = [];
@@ -111,8 +111,16 @@ class manageModal extends db{
         }
         return $types;
     }
+    public function checkCartManage($id){
+        $typesql = "UPDATE don_dat_hang 
+                    SET  trangthai= '1'
+                    WHERE id_don_dat = ".$id.";";
+        $query1 = $this->_query($typesql);
+        return $id;
+    }
+    
     public function deleteOrderManage($id){
-        $typesql = "DELETE FROM ct_don_dat WHERE id_don_dat=" . $id . ";";
+        $typesql = "DELETE FROM don_dat_hang WHERE id_don_dat=" . $id . ";";
         $query1 = $this->_query($typesql);
         return $query1;
     }

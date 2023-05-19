@@ -39,6 +39,7 @@
             unset($_SESSION['username']);
             unset($_SESSION['ten']);
             unset($_SESSION['id_kh']);
+            unset($_SESSION['cart']);
             header("Location: " . geturl(). "/login/loginView");
         }
 

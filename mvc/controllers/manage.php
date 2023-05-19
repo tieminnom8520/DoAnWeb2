@@ -71,6 +71,11 @@ class manage extends controller{
             "page" => $page
         ]);
     }
+    
+    public function checkCart($id){
+        $demoData = $this->model('manageModal')->checkCartManage($id);
+        header("Location: " . geturl(). "/manage/viewOrderPage/1");
+    }
     public function deleteOrder($id){
         $demoData = $this->model('manageModal')->deleteOrderManage($id);
         header("Location: " . geturl(). "/manage/viewOrderPage/1");

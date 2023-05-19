@@ -1,7 +1,7 @@
 <?php
     class CartModel extends db{
         function getAllOrders($user_id){
-            $qr = "SELECT * FROM ct_don_dat WHERE user_taikhoan='".$user_id."'";
+            $qr = "SELECT * FROM ct_don_dat WHERE id_taikhoan='".$user_id."'";
             return mysqli_query($this->connect, $qr);
         }
 

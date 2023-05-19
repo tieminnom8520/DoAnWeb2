@@ -17,6 +17,8 @@
                 $_SESSION['username'] = $demoData[0]['chucvu'];
                 $_SESSION['ten'] = $demoData[0]['ten'];
                 $_SESSION['id_kh'] = $demoData[0]['id_taikhoan'];
+                $_SESSION['sdt'] = $demoData[0]['sdt'];
+                $_SESSION['diachi'] = $demoData[0]['diachi'];
                 header("Location: " . geturl(). "/home");
             }
         }

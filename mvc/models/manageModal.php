@@ -98,13 +98,11 @@ class manageModal extends db{
     }
     public function getOrderPaging($page){
         $skip = (intval($page) - 1) * 5;
-        $skipnext = $skip + 5;
         if(intval($page) - 1 == 0){
             $skip = 0;
-            $skipnext = 5;
         }
         
-        $typesql = "SELECT * FROM ct_don_dat LIMIT ".$skip.", ".$skipnext.";";
+        $typesql = "SELECT * FROM don_dat_hang LIMIT ".$skip.", 5;";
         $query1 = $this->_query($typesql);
         if(!$query1) return [];
         $types = [];
@@ -114,7 +112,7 @@ class manageModal extends db{
         return $types;
     }
     public function deleteOrderManage($id){
-        $typesql = "DELETE FROM ct_don_dat WHERE order_id=" . $id . ";";
+        $typesql = "DELETE FROM ct_don_dat WHERE id_don_dat=" . $id . ";";
         $query1 = $this->_query($typesql);
         return $query1;
     }

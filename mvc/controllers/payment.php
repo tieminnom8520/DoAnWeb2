@@ -2,10 +2,14 @@
     require_once "./mvc/core/basehref.php";
     Class payment extends Controller {
         function addToCart(){
-            $quantity = $_POST['quantity'];
-            $user_taikhoan = $_POST['user_taikhoan'];
-            $id_mon = $_POST['id_mon'];
-            $this->model("paymentModel")->add($quantity, $user_taikhoan, $id_mon);
+            $date = date('Y-m-d H:i:s');
+            $ten = $_POST['ten_thanhtoan'];
+            $diachi = $_POST['diachi_thanhtoan'];
+            $sdt = $_POST['sodienthoai_thanhtoan'];
+            $ghichu = $_POST['ghichu_thanhtoan'];
+            $tongtien = $_POST['tongtien_thanhtoan'];
+            $id = $_SESSION['id_kh'];
+            $this->model("paymentModel")->add($id,$ten, $diachi, $sdt, $ghichu, $tongtien,$date);
             header("Location: " . geturl(). "/products");
         }
     }

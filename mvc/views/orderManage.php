@@ -81,24 +81,24 @@ if (!$_SESSION['username'] == "admin"){
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">User_taikhoan</th>
-                                    <th scope="col">Product_id</th>
+                                    <th scope="col">ID-KH</th>
+                                    <th scope="col">ID-Đơn Hàng</th>
+                                    <th scope="col">Tổng Tiền</th>
+                                    <th scope="col">Trạng Thái</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- item -->
                                 <?php foreach($data as $value): ?>
-                                    <tr data-id="<?=$value['order_id']?>">
-                                        <th scope="row"><?=$value['order_id']?></th>
-                                        <td class="Name_Product_value"><?=$value['quantity']?></td>
-                                        <td class="Type_Product_value"><?=$value['user_taikhoan']?></td>
-                                        <td class="Price_Product_value"><?=$value['id_mon']?></td>
+                                    <tr data-id="<?=$value['id_don_dat']?>">
+                                        <th scope="row"><?=$value['id_khachhang']?></th>
+                                        <td class="Name_Product_value"><?=$value['id_don_dat']?></td>
+                                        <td class="Type_Product_value"><?=$value['tongcong']?></td>
+                                        <td class="Price_Product_value"><?=$value['trangthai']?></td>
                                         <td>
-                                            <i class="bi bi-plus-circle-fill detail-product" data-id="<?=$value['order_id']?>"></i>
-                                            <i class="bi bi-x-circle-fill delete-product" data-toggle="modal" data-target="#exampleModal" data-id="<?=$value['order_id']?>"></i>
+                                            <i class="bi bi-plus-circle-fill detail-product" data-id="<?=$value['id_don_dat']?>"></i>
+                                            <i class="bi bi-x-circle-fill delete-product" data-toggle="modal" data-target="#exampleModal" data-id="<?=$value['id_don_dat']?>"></i>
                                         </td>
                                     </tr>
 

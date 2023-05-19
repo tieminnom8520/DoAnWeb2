@@ -65,6 +65,7 @@ class manage extends controller{
     public function viewOrderPage($page){
         if($page < 1) $page = 1;
         $Data = $this->model('manageModal')->getOrderPaging($page);
+
         $this->view("orderManage", [
             "data" => $Data,
             "page" => $page

@@ -104,7 +104,7 @@
     </div>
         
     <!-- EDIT MODAL -->
-    <div class="modal fade" id="thanhtoan-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal fade" id="thanhtoan-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true" method="POST">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -114,38 +114,38 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_event" method="POST" class="was-validated">
+                <form action="payment/addToCart" method="POST" class="was-validated">
                     <div class="form-group">
                         <label for="Name_Product">Tên</label>
-                        <input type="text" class="form-control" id="Name_Product" name="ten_thanhtoan" required>
+                        <input type="text" class="form-control" id="Name_Product" name="ten_thanhtoan" value="<?=$_SESSION['ten']?>" required>
                     </div>
                     <div class="form-group">
                         <label for="Quantity_Product">Địa chỉ</label>
-                        <input type="text" class="form-control" id="Quantity_Product" name="diachi_thanhtoan" required>
+                        <input type="text" class="form-control" id="Quantity_Product" name="diachi_thanhtoan" value="<?=$_SESSION['diachi']?>" required>
                     </div>
                     <div class="form-group">
                         <label for="Quantity_Product">Số điện thoại</label>
-                        <input type="text" class="form-control" id="Quantity_Product" name="sodienthoai_thanhtoan" required>
+                        <input type="text" class="form-control" id="Quantity_Product" name="sodienthoai_thanhtoan" value="<?=$_SESSION['sdt']?>" required>
                     </div>
                     <div class="form-group">
                         <label for="Detail_Product">Ghi chú</label>
-                        <input type="text" class="form-control" id="Detail_Product" name="ghichu_thanhtoan" required>
+                        <input type="text" class="form-control" id="Detail_Product" name="ghichu_thanhtoan">
                     </div>
                     <div></div>
                     <div class="form-group">
                         <label for="Detail_Product">Tổng tiền:</label>
-                        <label id="tongtien" name="tongtien_thanhtoan"><?= $tongtien ?>₫ </label>
+                        <input type="text" id="tongtien" name="tongtien_thanhtoan" value="<?=$tongtien?>"><?= $tongtien ?>₫
                     </div>
-                    
-                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-warning" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary" id="cart-confirm" >Thanh toán</button>
+                <button type="submit" class="btn btn-primary" >Thanh toán</button>
             </div>
+            </form>
             </div>
         </div>
         </div>
+
 
     <div class="footer">
         <div class="useful-link">

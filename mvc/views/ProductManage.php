@@ -372,7 +372,7 @@ if (!$_SESSION['username'] && $_SESSION['username'] == "admin"){
                 document.getElementById('Detail_Product').value = '';
                 document.getElementById('Rating_Product').value = '';
         })
-        document.getElementById('button_form_event').addEventListener('click', () => {
+            document.getElementById('button_form_event').addEventListener('click', () => {
             var form_event = document.getElementById('form_event');
             if(arr_value) form_event.action = `manage/editProduct/${arr_value[0]}`;
             else form_event.action = `manage/editProduct/-1`

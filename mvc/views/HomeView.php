@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <a href="#" alt="banner1-Trà dưa hấu vải">
+    <a href="products/productdetail/38" alt="banner1-Trà dưa hấu vải">
         <div class="banner_box">
            <img src="./mvc/image/banner/banner_1/banner.png" class="banner">
             <img src="./mvc/image/banner/banner_1/banner_ob_1.png" class="banner_object" id="object_1">
@@ -56,39 +56,25 @@
             <img src="./mvc/image/banner/banner_1/banner_ob_6.png" class="banner_object" id="object_6">
         </div>
     </a>
+    <a href="products/category/Bánh" ><div class="banner_box" id="banner2">
+        <div class="banner"></div>
+        <img src="./mvc/image/banner/banner_2/bn_object_1.png" class="banner_object" id="object_7">
+        <img src="./mvc/image/banner/banner_2/bn_object_2.png" class="banner_object" id="object_8">
+        <div style="font-size:100px; color : black;" class="banner_object" id="BanhNgot"> BÁNH NGỌT</div>
+        <div style="font-size:25px; font-weight:900; color : black;" class="banner_object" id="BanhNgotChiTiet"> Với sự kết hợp giữa chất lượng, 
+        hương vị đặc trưng và sự đổi mới, bánh của Lowland đã trở thành một sự lựa chọn ưa thích. 
+        Lowland luôn mang đến niềm vui và sự hài lòng trong mỗi miếng bánh,
+         tạo nên những kỷ niệm ngọt ngào và hạnh phúc cho tất cả khách hàng.</div>
+    </div></a>
     
     <div class="category-list">
 
-        <?php foreach ($data["all-type"] as $value): ?>
-            <div class="category-box">
-                <h2><?=$value["Loai"]?></h2>
-                <div class="product-list">
-                    <?php 
-                    $pro_of_type = $data["pro-db"]->getAllProductsOfCategory($value["Loai"]);
-                    $i = 0;
-                    foreach ($pro_of_type as $pro):
-                        $i++;
-                    ?>
-                        <div class="product">
-                            <a href="products/productdetail/<?=$pro["id_mon"]?>"><img src=' ./mvc/image/<?php echo $pro["Hinhanh"] ?>' alt="#">
-                            <p><?=substr($pro["ten_mon"], 0, 50)?></p>
-                            <div class="ct">Chi Tiết</div>
-                            </a>
-                        </div>
-                    
-                    <?php 
-                        if ($i > 3) break;
-                        endforeach; ?>
-                </div>
-                <div class="seemore-btn"><a href="products/category/<?=$value["Loai"]?>">Xem Thêm</a></div>
-            </div>
-        <?php endforeach; ?>
 
         <div class="category-scroll">
-            <h2>Có Thể Bạn Sẽ Thích</h2>
+            <h1>Các sản phẩm nổi bật</h1>
             <div class="product-list">
                 <?php 
-                    while ($row = mysqli_fetch_array($data["all-pro"])){
+                    while ($row = mysqli_fetch_array($data["all-special"])){
                         echo '<div class="product">
                                 <a href="products/productdetail/'.$row["id_mon"].'"><img src="./mvc/image/'.$row["Hinhanh"].'" alt="#">
                                 <div class="ct">Chi Tiết</div>
@@ -109,18 +95,18 @@
             <div><a href="#">Youtube</a></div>          
         </div>
         <div class="useful-link">
-            <h3>Let Us Help You</h3>
-            <div><a href="#">Shipping Rates & Policies</a></div>
-            <div><a href="#">Returns & Replacements</a></div>
-            <div><a href="#">Manage Your Content and Devices</a></div>
-            <div><a href="#">Help</a></div>
+            <h3>Để chúng tôi giúp bạn</h3>
+            <div><a href="#">Chính Sách giao hàng</a></div>
+            <div><a href="#">Khiếu Nại Và Bồi Thường </a></div>
+            <div><a href="#">Quản lý nội dùng và thiết bị</a></div>
+            <div><a href="#">Trợ giúp</a></div>
         </div>
         <div class="useful-link">
-            <h3>Make Money With Us</h3>
-            <div><a href="#">Sell products on RedStore</a></div>
-            <div><a href="#">Sell on RedStore Business</a></div>
-            <div><a href="#">Advertise Your Products</a></div>
-            <div><a href="#">Self-Publish with Us</a></div>
+            <h3>Tuyển dụng</h3>
+            <div><a href="#">Cộng tác viên Facebook</a></div>
+            <div><a href="#">Cộng tác viên TikTok</a></div>
+            <div><a href="#">Liên hệ Quảng cáo</a></div>
+            <div><a href="#">Liên hệ nhượng quyền</a></div>
         </div>
     </div>
 

@@ -99,8 +99,8 @@ body {
 }
 
 .category-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: block;
+  /* flex-wrap: wrap; */
   justify-content: center;
 }
 
@@ -122,10 +122,13 @@ body {
   padding: 0 20px 10px 20px;
   max-width: 1500px;
   min-width: 392px;
-  margin: 10px 20px 20px 20px;
+  /* margin: 10px 20px 20px 20px; */
+  margin: 10px auto;
   border-radius: 20px;
 }
-
+.category-scroll h1 {
+  text-align: center;
+}
 .category-box .product-list {
   display: flex;
   flex-wrap: wrap;
